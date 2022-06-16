@@ -1,0 +1,55 @@
+.navegacion {
+  position: fixed;
+  background-color: rgb(37, 37, 37);
+  transition: width 500ms ease;
+}
+
+.nav-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-li {
+  width: 100%;
+}
+
+.nav-li:last-child {
+  margin-top: auto;
+}
+
+.nav-a {
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  text-decoration: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  transition: width 600ms ease;
+}
+
+.nav-a:hover {
+  filter: brightness(2);
+}
+
+.nav-span {
+  display: none;
+  margin-left: 1rem;
+  font-weight: bold;
+  font-size: 2em;
+  color: lightslategray;
+}
+
+.icono {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  transform: rotate(0deg);
+  transition: transform 700ms;
+}
+
+.navegacion:hover .icono {
+  transform: rotateY(360deg);
+}

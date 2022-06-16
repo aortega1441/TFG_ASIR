@@ -1,0 +1,75 @@
+body {
+  background-image: url(../images/fondo_lineas2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 30%;
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Friz Quadrata Regular";
+  text-align: center;
+  margin-top: 3em;
+  font-size: 3em;
+  color: rgb(184, 186, 255);
+}
+
+.spanh1 {
+  background-color: rgb(37, 37, 37);
+  border-style: double;
+  border-color: rgb(148, 68, 117);
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15%;
+}
+
+main {
+  margin: 5%;
+  margin-top: 5%;
+}
+
+div {
+  display: inline;
+  margin: 2em;
+  padding: 2em;
+}
+
+.lineas {
+  animation: aumento2 0.6s cubic-bezier(1, 0.565, 0.575, 0.39) both;
+}
+
+img:hover {
+  animation: aumento1 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+#inicio {
+  animation: none;
+}
+
+#inicio:hover {
+  filter: brightness(2);
+}
+
+#enlaceinicio {
+  display: block;
+  margin-right: 53%;
+  margin-left: 47%; 
+}
+
+@keyframes aumento1 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes aumento2 {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

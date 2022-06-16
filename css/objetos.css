@@ -1,0 +1,237 @@
+body {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  height: 100vh;
+  background: rgb(61, 61, 61);
+  animation: scroll 200s linear infinite;
+  background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"),
+    #111111;
+  color: white;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+#enlaces-inicio {
+  box-shadow: none;
+}
+
+#enlaces-inicio img {
+  float: left;
+  border: none;
+  box-shadow: none;
+  margin-right: 2em;
+}
+
+#enlaces-inicio a {
+  margin-right: 2em;
+}
+
+#enlaces-inicio img:hover {
+  filter: brightness(2);
+  animation: none;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: rgb(148, 68, 117);
+  margin-bottom: 2em;
+  font-family: "Friz Quadrata Regular";
+  background: linear-gradient(
+    to right,
+    rgb(184, 186, 255) 20%,
+    rgb(148, 68, 117) 60%,
+    rgb(184, 186, 255) 95%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: degradacion 6s linear infinite;
+  text-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+}
+
+h2 {
+  margin-left: 1em;
+  margin-top: 2em;
+  color: rgb(148, 68, 117);
+  margin: 1 0 0.25em;
+  font-family: "Friz Quadrata Regular";
+  background: linear-gradient(
+    to right,
+    rgb(184, 186, 255) 20%,
+    rgb(148, 68, 117) 60%,
+    rgb(184, 186, 255) 95%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: degradacion 6s linear infinite;
+  text-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+  text-align: center;
+}
+
+main {
+  background-color: rgb(37, 37, 37);
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(148, 68, 117);
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+}
+#cont1 {
+  width: 55%;
+  background-color: rgb(31, 31, 31);
+  float: left;
+  border: solid rgb(148, 68, 117);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+  overflow-x: hidden;
+}
+
+#cont2 {
+  background-color: rgb(31, 31, 31);
+  float: right;
+  width: 40%;
+  border: solid rgb(148, 68, 117);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+  position: sticky;
+  top: 1em;
+}
+
+.cont3 {
+  margin: 1em;
+  width: 80px;
+  height: 80px;
+  background-color: rgb(31, 31, 31);
+  float: left;
+  overflow: auto;
+  border: solid rgb(184, 186, 255);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+}
+
+#cont5 {
+  width: 100%;
+}
+
+#cont5 p {
+  font-family: "Friz Quadrata Regular";
+  margin: 1em;
+  font-size: 30px;
+  color: rgb(184, 186, 255);
+}
+
+span img {
+  margin: 1em;
+  border: solid rgb(184, 186, 255);
+  animation: aumento2 0.6s cubic-bezier(1, 0.565, 0.575, 0.39) both;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+}
+
+span img:hover {
+  filter: brightness(1.5);
+  border: solid goldenrod;
+  animation: aumento1 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+figure {
+  border-radius: 100%;
+  display: inline-block;
+  height: 100px;
+  position: relative;
+  width: 70px;
+}
+
+figcaption {
+  font-family: "Open Sans";
+  background-color: rgba(148, 68, 117, 0.596);
+  border-radius: 5px;
+  color: white;
+  content: attr(title);
+  opacity: 0;
+  padding: 6px 12px;
+  position: fixed;
+  left: 70em;
+  right: 4em;
+  margin-top: 2em;
+  transition: all 0.25s ease;
+  visibility: hidden;
+  white-space: pre-wrap;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+}
+
+figure:hover > figcaption {
+  opacity: 1;
+  visibility: visible;
+}
+
+#cont5 #recargar {
+  margin: 1em;
+  width: 80px;
+  height: 80px;
+  background-color: rgb(31, 31, 31);
+  float: right;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#cont5 p {
+  float: left;
+  text-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+}
+
+#casillas {
+  float: left;
+}
+
+body::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(37, 37, 37);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(148, 68, 117);
+}
+
+@keyframes scroll {
+  100% {
+    background-position: 0px -3000px;
+  }
+}
+
+@keyframes degradacion {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes aumento1 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes aumento2 {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

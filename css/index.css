@@ -1,0 +1,151 @@
+:root {
+  font-size: 16px;
+  font-family: "Open Sans";
+}
+
+body {
+  background-image: url(../images/fondo_grieta_2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-left: 8rem;
+  padding: 1rem;
+}
+
+h1 {
+  color: rgb(148, 68, 117);
+  font-family: "Friz Quadrata Regular";
+  font-size: 3.5em;
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    rgb(34, 0, 97) 20%,
+    rgb(148, 68, 117) 60%,
+    rgb(34, 0, 97) 95%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: degradacion 6s linear infinite;
+  text-shadow: 0 5px 25px rgba(2, 2, 2, 2);
+}
+
+.pbold {
+  font-weight: bold;
+}
+
+.divprincipal1 {
+  text-align: justify;
+  margin-left: 3em;
+  float: left;
+  width: 45%;
+}
+
+.divprincipal2 {
+  text-align: justify;
+  margin-right: 3em;
+  float: right;
+  width: 45%;
+}
+
+body::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(37, 37, 37);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(148, 68, 117);
+}
+
+@keyframes degradacion {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+.divs_inicio {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 24%;
+  width: 24%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.cont1 {
+  border-top-left-radius: 15%;
+  border-bottom-left-radius: 15%;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(61, 61, 61);
+  animation-name: despliegue_hacia_abajo;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.cont2 {
+  background-color: rgb(148, 68, 117);
+  width: 300px;
+  height: 3rem;
+  align-items: center;
+}
+
+a,
+.texto_cont2 {
+  text-decoration: none;
+  font-family: "Friz Quadrata Regular";
+  margin: auto;
+  color: rgb(184, 186, 255);
+}
+
+.cont2 + p {
+  display: flex;
+  margin: auto;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.cont1::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+.cont1::-webkit-scrollbar-track {
+  background: rgb(37, 37, 37);
+}
+
+.cont1::-webkit-scrollbar-thumb {
+  background: rgb(184, 186, 255);
+}
+
+@keyframes despliegue_hacia_abajo {
+  0% {
+    transform: rotateX(-100deg);
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    transform-origin: top;
+    opacity: 1;
+  }
+}
