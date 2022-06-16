@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="redireccion.css" />
+    <meta http-equiv="refresh" content="5; url=htttps://proleague.cf" />
+    <title>REDIRECCION</title>
+  </head>
+  <body>
+    <div class="ola"></div>
+
+    <script>
+      let ola = document.querySelector(".ola");
+      let i = 0;
+      let num = 50;
+
+      for (i; i < 20; i++) {
+        let span = document.createElement("span");
+        span.style.height = `${num * 10}px`;
+        span.style.width = `${num * 2}px`;
+        span.style.animationDelay = `${i / 7}s`;
+        ola.append(span);
+      }
+    </script>
+  </body>
+</html>
