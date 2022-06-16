@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TOP</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/campeones.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+
+    <script>
+      function mostrarCampeon(campeon) {
+        var campeonElegido = "";
+        if (campeon == "sion") {
+          campeonElegido = "Sion";
+        } else if (campeon == "maokai") {
+          campeonElegido = "Maokai";
+        } else if (campeon == "pantheon") {
+          campeonElegido = "Pantheon";
+        } else if (campeon == "wukong") {
+          campeonElegido = "Wukong";
+        } else if (campeon == "poppy") {
+          campeonElegido = "Poppy";
+        } else {
+          campeonElegido = "none";
+          location.reload();
+        }
+
+        var xmlhttp;
+        var datos;
+        var resultados = document.getElementById("listaCampeones");
+        var mostrarDatos = "";
+
+        if (campeon.length == 0) {
+          document.getElementById("info").innerHTML = "";
+          resultados.innerHTML = "";
+          return;
+        }
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            datos = xmlhttp.responseText;
+            document.getElementById("info").innerHTML =
+              datos[0];
+            for (var i = 1; i < 2; i++) {
+              mostrarDatos =
+                mostrarDatos +
+                "<div class='info' id='lore'" +
+                i +
+                ">" +
+                datos +
+                "</div>";
+            }
+            resultados.innerHTML = mostrarDatos;
+          }
+        };
+        var parametros = "top=" + encodeURIComponent(campeonElegido);
+        xmlhttp.open("POST", "php/top.php"); 
+        xmlhttp.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        ); 
+        xmlhttp.send(parametros); 
+      }
+
+      function cambiar(valor) {
+        
+        var garras = document.getElementById("garras").textContent;
+        var escudo = document.getElementById("escudo").textContent;
+        var revestimiento = document.getElementById("revestimiento").textContent;
+        var sobrecrecimiento = document.getElementById("sobrecrecimiento").textContent;
+        var galletas = document.getElementById("galletas").textContent;
+        var tonico = document.getElementById("tonico").textContent;
+        var guantelete = document.getElementById("guantelete").textContent;
+        var tabis = document.getElementById("tabis").textContent;
+        var titanica = document.getElementById("titanica").textContent;
+        var espinas = document.getElementById("espinas").textContent;
+        var petreo = document.getElementById("petreo").textContent;
+        var warmog = document.getElementById("warmog").textContent;
+        var revitalizar = document.getElementById("revitalizar").textContent;
+        var solar = document.getElementById("solar").textContent;
+        var randuin = document.getElementById("randuin").textContent;
+        var naturaleza = document.getElementById("naturaleza").textContent;
+        var abisal = document.getElementById("abisal").textContent;
+        var conquistador = document.getElementById("conquistador").textContent;
+        var triunfo = document.getElementById("triunfo").textContent;
+        var tenacidad = document.getElementById("tenacidad").textContent;
+        var golpe = document.getElementById("golpe").textContent;
+        var eclipse = document.getElementById("eclipse").textContent;
+        var cuchilla = document.getElementById("cuchilla").textContent;
+        var malmortius = document.getElementById("malmortius").textContent;
+        var baile = document.getElementById("baile").textContent;
+        var sierra = document.getElementById("sierra").textContent;
+        var reververacion = document.getElementById("reververacion").textContent;
+        var vida = document.getElementById("vida").textContent;
+        var inquebrantable = document.getElementById("inquebrantable").textContent;
+        var rostro = document.getElementById("rostro").textContent;
+        var celeridad = document.getElementById("celeridad").textContent;
+        var esfuerzo = document.getElementById("esfuerzo").textContent;
+        var calzado = document.getElementById("calzado").textContent;
+
+
+
+
+
+        
+
+
+
+          if (valor == "sion") {
+            document.getElementById("img1").src = "images/objetos/guantelete.png";
+            document.getElementById("fig1").title = guantelete;
+            document.getElementById("img2").src = "images/objetos/titanica.png";
+            document.getElementById("fig2").title = titanica;
+            document.getElementById("img3").src = "images/objetos/petreo.png";
+            document.getElementById("fig3").title = petreo;
+            document.getElementById("img4").src = "images/objetos/espinas.png";
+            document.getElementById("fig4").title = espinas;
+            document.getElementById("img5").src = "images/objetos/warmog.png";
+            document.getElementById("fig5").title = warmog;
+            document.getElementById("img6").src = "images/objetos/tabis.png";
+            document.getElementById("fig6").title = tabis;
+            document.getElementById("img7").src =
+              "images/runas/valor/garras.png";
+            document.getElementById("fig7").title = garras;
+            document.getElementById("img8").src =
+              "images/runas/valor/escudo.png";
+            document.getElementById("fig8").title = escudo;
+            document.getElementById("img9").src =
+              "images/runas/valor/revestimiento.png";
+            document.getElementById("fig9").title = revestimiento;
+            document.getElementById("img10").src =
+              "images/runas/valor/crecimiento.png";
+            document.getElementById("fig10").title = sobrecrecimiento;
+            document.getElementById("img11").src =
+              "images/runas/inspiracion/galletas.png";
+            document.getElementById("fig11").title = galletas;
+            document.getElementById("img12").src =
+              "images/runas/inspiracion/tonico.png";
+            document.getElementById("fig12").title = tonico;
+            document.getElementById("img13").src = "images/campeones/maokai.png";
+  
+            document.getElementById("img14").src = "images/campeones/gnar.png";
+  
+            document.getElementById("img15").src = "images/campeones/lucian.png";
+  
+            document.getElementById("img16").src = "images/campeones/viego.png";
+            document.getElementById("skin11").src = "images/skins/sion.jpg";
+            document.getElementById("skin111").src = "images/skins/sion.jpg";
+            document.getElementById("skin22").src =
+              "images/skins/sion_mecha.jpg";
+            document.getElementById("skin222").src =
+              "images/skins/sion_mecha.jpg";
+  
+          } else if (valor == "poppy") {
+          document.getElementById("img1").src = "images/objetos/solar.png";
+          document.getElementById("fig1").title = solar;
+          document.getElementById("img2").src = "images/objetos/espinas.png";
+          document.getElementById("fig2").title = espinas;
+          document.getElementById("img3").src = "images/objetos/randuin.png";
+          document.getElementById("fig3").title = randuin;
+          document.getElementById("img4").src = "images/objetos/naturaleza.png";
+          document.getElementById("fig4").title = naturaleza;
+          document.getElementById("img5").src = "images/objetos/abisal.png";
+          document.getElementById("fig5").title = abisal;
+          document.getElementById("img6").src = "images/objetos/tabis.png";
+          document.getElementById("fig6").title = tabis;
+          document.getElementById("img7").src =
+            "images/runas/valor/garras.png";
+          document.getElementById("fig7").title = garras;
+          document.getElementById("img8").src =
+            "images/runas/valor/escudo.png";
+          document.getElementById("fig8").title = escudo;
+          document.getElementById("img9").src =
+            "images/runas/valor/revestimiento.png";
+          document.getElementById("fig9").title = revestimiento;
+          document.getElementById("img10").src =
+            "images/runas/valor/revitalizar.png";
+          document.getElementById("fig10").title = revitalizar;
+          document.getElementById("img11").src =
+            "images/runas/inspiracion/galletas.png";
+          document.getElementById("fig11").title = galletas;
+          document.getElementById("img12").src =
+            "images/runas/inspiracion/tonico.png";
+          document.getElementById("fig12").title = tonico;
+          document.getElementById("img13").src = "images/campeones/maokai.png";
+
+          document.getElementById("img14").src = "images/campeones/pantheon.png";
+
+          document.getElementById("img15").src = "images/campeones/trynda.png";
+
+          document.getElementById("img16").src = "images/campeones/sylas.png";
+          document.getElementById("skin11").src = "images/skins/poppy.jpg";
+          document.getElementById("skin111").src = "images/skins/poppy.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/poppy_herrera.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/poppy_herrera.jpg";
+          } else if (valor == "pantheon") {
+          document.getElementById("img1").src = "images/objetos/eclipse.png";
+          document.getElementById("fig1").title = eclipse;
+          document.getElementById("img2").src = "images/objetos/cuchilla.png";
+          document.getElementById("fig2").title = cuchilla;
+          document.getElementById("img3").src = "images/objetos/malmortius.png";
+          document.getElementById("fig3").title = malmortius;
+          document.getElementById("img4").src = "images/objetos/baile.png";
+          document.getElementById("fig4").title = baile;
+          document.getElementById("img5").src = "images/objetos/sierra.png";
+          document.getElementById("fig5").title = sierra;
+          document.getElementById("img6").src = "images/objetos/tabis.png";
+          document.getElementById("fig6").title = tabis;
+          document.getElementById("img7").src =
+            "images/runas/precision/conquistador.png";
+          document.getElementById("fig7").title = conquistador;
+          document.getElementById("img8").src =
+            "images/runas/precision/triunfo.png";
+          document.getElementById("fig8").title = triunfo;
+          document.getElementById("img9").src =
+            "images/runas/precision/tenacidad.png";
+          document.getElementById("fig9").title = tenacidad;
+          document.getElementById("img10").src =
+            "images/runas/precision/golpe.png";
+          document.getElementById("fig10").title = golpe;
+          document.getElementById("img11").src =
+            "images/runas/inspiracion/galletas.png";
+          document.getElementById("fig11").title = galletas;
+          document.getElementById("img12").src =
+            "images/runas/inspiracion/tonico.png";
+          document.getElementById("fig12").title = tonico;
+          document.getElementById("img13").src = "images/campeones/pyke.png";
+
+          document.getElementById("img14").src = "images/campeones/aurelion.png";
+
+          document.getElementById("img15").src = "images/campeones/lucian.png";
+
+          document.getElementById("img16").src = "images/campeones/irelia.png";
+          document.getElementById("skin11").src = "images/skins/pantheon.jpg";
+          document.getElementById("skin111").src = "images/skins/pantheon.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/pantheon_espada.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/pantheon_espada.jpg";
+          } else if (valor == "maokai") {
+          document.getElementById("img1").src = "images/objetos/solar.png";
+          document.getElementById("fig1").title = solar;
+          document.getElementById("img2").src = "images/objetos/espinas.png";
+          document.getElementById("fig2").title = espinas;
+          document.getElementById("img3").src = "images/objetos/rostro.png";
+          document.getElementById("fig3").title = rostro;
+          document.getElementById("img4").src = "images/objetos/randuin.png";
+          document.getElementById("fig4").title = randuin;
+          document.getElementById("img5").src = "images/objetos/warmog.png";
+          document.getElementById("fig5").title = warmog;
+          document.getElementById("img6").src = "images/objetos/tabis.png";
+          document.getElementById("fig6").title = tabis;
+          document.getElementById("img7").src =
+            "images/runas/valor/reververacion.png";
+          document.getElementById("fig7").title = reververacion;
+          document.getElementById("img8").src =
+            "images/runas/valor/vida.png";
+          document.getElementById("fig8").title = vida;
+          document.getElementById("img9").src =
+            "images/runas/valor/revestimiento.png";
+          document.getElementById("fig9").title = revestimiento;
+          document.getElementById("img10").src =
+            "images/runas/valor/inquebrantable.png";
+          document.getElementById("fig10").title = inquebrantable;
+          document.getElementById("img11").src =
+            "images/runas/inspiracion/galletas.png";
+          document.getElementById("fig11").title = galletas;
+          document.getElementById("img12").src =
+            "images/runas/inspiracion/tonico.png";
+          document.getElementById("fig12").title = tonico;
+          document.getElementById("img13").src = "images/campeones/shaco.png";
+
+          document.getElementById("img14").src = "images/campeones/sona.png";
+
+          document.getElementById("img15").src = "images/campeones/sett.png";
+
+          document.getElementById("img16").src = "images/campeones/karma.png";
+          document.getElementById("skin11").src = "images/skins/maokai.jpg";
+          document.getElementById("skin111").src = "images/skins/maokai.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/maokai_gato.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/maokai_gato.jpg";
+          } else if (valor == "wukong") {
+          document.getElementById("img1").src = "images/objetos/titanica.png";
+          document.getElementById("fig1").title = titanica;
+          document.getElementById("img2").src = "images/objetos/cuchilla.png";
+          document.getElementById("fig2").title = cuchilla;
+          document.getElementById("img3").src = "images/objetos/baile.png";
+          document.getElementById("fig3").title = baile;
+          document.getElementById("img4").src = "images/objetos/warmog.png";
+          document.getElementById("fig4").title = warmog;
+          document.getElementById("img5").src = "images/objetos/espinas.png";
+          document.getElementById("fig5").title = espinas;
+          document.getElementById("img6").src = "images/objetos/tabis.png";
+          document.getElementById("fig6").title = tabis;
+          document.getElementById("img7").src =
+            "images/runas/precision/conquistador.png";
+          document.getElementById("fig7").title = conquistador;
+          document.getElementById("img8").src =
+            "images/runas/precision/triunfo.png";
+          document.getElementById("fig8").title = triunfo;
+          document.getElementById("img9").src =
+            "images/runas/precision/celeridad.png";
+          document.getElementById("fig9").title = celeridad;
+          document.getElementById("img10").src =
+            "images/runas/precision/esfuerzo.png";
+          document.getElementById("fig10").title = esfuerzo;
+          document.getElementById("img11").src =
+            "images/runas/inspiracion/calzado.png";
+          document.getElementById("fig11").title = calzado;
+          document.getElementById("img12").src =
+            "images/runas/inspiracion/galletas.png";
+          document.getElementById("fig12").title = galletas;
+          document.getElementById("img13").src = "images/campeones/ww.png";
+
+          document.getElementById("img14").src = "images/campeones/zac.png";
+
+          document.getElementById("img15").src = "images/campeones/lucian.png";
+
+          document.getElementById("img16").src = "images/campeones/irelia.png";
+          document.getElementById("skin11").src = "images/skins/wukong.jpg";
+          document.getElementById("skin111").src = "images/skins/wukong.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/wukong_under.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/wukong_under.jpg";
+          } else {
+            imagenElegida = "none";
+          }
+      }
+    </script>
+  </head>
+
+  <body style="margin: 20px" class="contenedor" id="inicio">
+    <main>
+      <header>
+        <div id="enlaces-inicio">
+          <a href="lineas.html"
+            ><img
+              src="images/flecha_inicio.png"
+              alt="lineas"
+              width="80em"
+              height="80em"
+          /></a>
+          <a href="index.html"
+            ><img
+              src="images/inicio.png"
+              alt="inicio"
+              width="80em"
+              height="80em"
+          /></a>
+        </div>
+        <h1>Elige un TOP:</h1>
+        <form action="">
+          <div class="select">
+            <select
+              onchange="mostrarCampeon(this.value), cambiar(this.value)"
+            >
+              <option value="none">Elige</option>
+              <option value="sion">Sion</option>
+              <option value="poppy">Poppy</option>
+              <option value="pantheon">Pantheon</option>
+              <option value="maokai">Maokai</option>
+              <option value="wukong">Wukong</option>
+            </select>
+          </div>
+        </form>
+      </header>
+      <br />
+      <p>
+        <span id="info"></span>
+      </p>
+      <div id="listaCampeones"></div>
+      <h2>Objetos recomendados</h2>
+      <div>
+        <figure id="fig1" title=""><img id="img1" src="" alt="" /></figure>
+        <figure id="fig2" title=""><img id="img2" src="" alt="" /></figure>
+        <figure id="fig3" title=""><img id="img3" src="" alt="" /></figure>
+        <figure id="fig4" title=""><img id="img4" src="" alt="" /></figure>
+        <figure id="fig5" title=""><img id="img5" src="" alt="" /></figure>
+        <figure id="fig6" title=""><img id="img6" src="" alt="" /></figure>
+      </div>
+      <h2>Runas recomendadas</h2>
+      <div class="runas">
+        <h4>Primarias</h4>
+        <figure id="fig7" title=""><img id="img7" src="" alt="" /></figure>
+        <figure id="fig8" title=""><img id="img8" src="" alt="" /></figure>
+        <figure id="fig9" title=""><img id="img9" src="" alt="" /></figure>
+        <figure id="fig10" title=""><img id="img10" src="" alt="" /></figure>
+      </div>
+      <div class="runas">
+        <h4>Secundarias</h4>
+        <figure id="fig11" title=""><img id="img11" src="" alt="" /></figure>
+        <figure id="fig12" title=""><img id="img12" src="" alt="" /></figure>
+      </div>
+  
+      <div id="debil">
+        <h2>Débil contra:</h2>
+        <br />
+        <img id="img13" src="images/no_campeon.png" alt="" />
+        <img id="img14" src="images/no_campeon.png" alt="" />
+      </div>
+      <div id="fuerte">
+        <h2>Fuerte contra:</h2>
+        <br />
+        <img id="img15" src="images/no_campeon.png" alt="" />
+        <img id="img16" src="images/no_campeon.png" alt="" />
+      </div>
+      <div>
+        <h2>Skins</h2>
+        <ul class="galeria" id="galeria">
+          <li>
+            <a href="#skin1"><img id="skin11" src="images/no_imagen.png" /></a>
+          </li>
+          <li>
+            <a href="#skin2"><img id="skin22" src="images/no_imagen.png" /></a>
+          </li>
+        </ul>
+  
+        <div class="modal" id="skin1">
+          <div class="imagen">
+            <a href="#skin2"><button id="izquierda"><img id="imgbutton" src="images/flecha.png" alt=""></button></a>
+            <a href="#skin2"><img id="skin111" src="" /></a>
+            <a href="#skin2"><button id="derecha"><img id="imgbutton" src="images/flecha2.png" alt=""></button></a>
+          </div>
+          <a class="cerrar" href="#inicio">X</a>
+        </div>
+  
+        <div class="modal" id="skin2">
+          <div class="imagen">
+            <a href="#skin1"><button id="izquierda"><img id="imgbutton" src="images/flecha.png" alt=""></button></a>
+            <a href="#skin1"><img id="skin222" src="" /></a>
+            <a href="#skin1"><button id="derecha"><img id="imgbutton" src="images/flecha2.png" alt=""></button></a>
+          </div>
+          <a class="cerrar" href="#inicio">X</a>
+        </div>
+      </div>
+    </main>
+
+
+<pre id="revestimiento" hidden>
+Revestimiento de huesos
+____________________
+        
+PASIVA: Ganas 10% de resistencia a la ralentización y tenacidad. Esto aumenta en función de tu vida faltante, hasta un 30% de resistencia a la ralentización y tenacidad en 30% de vida máxima o inferior.</pre>
+      
+<pre id="garras" hidden>
+Garras del inmortal
+____________________
+
+PASIVA: Causar o recibir daño en 2 segundos genera una acumulación cada segundo. En 4 acumulaciones, tu próximo ataque básico en 6 segundos, contra un campeón enemigo inflige 4% de tu vida máxima como daño mágico adicional, restaura 2% 4% de tu vida máxima, y permanentemente otorga 5 de vida adicional. La duración del ataque mejorado se actualiza cada vez que inflige o recibe daño.
+en campeones a distancia, Los efectos se reducen en un 40%, hasta 2.4% de tu vida máxima, 1.2% de tu vida máxima, y 3 de vida adicional respectivamente.</pre>
+
+<pre id="escudo" hidden>
+Golpe de escudo
+____________________
+
+PASIVA: Mientras estés escudado, ganas 1 − 10 (según el nivel) de armadura adicional y resistencia mágica adicional.
+Cada vez que ganas un escudo, tu próximo ataque básico contra un campeón inflige 5 − 30 (según el nivel) (+ 1.5% de la vida adicional) (+ 8.5% de la cantidad del escudo) como daño adaptable adicional. El ataque mejorado dura hasta 2 segundos después de que expire el escudo.
+DAÑO ADAPTABLE: Inflige daño físico o daño mágico dependiendo en tus estadísticas adicionales, prefijando en daño físico.</pre>
+
+
+<pre id="sobrecrecimiento" hidden>
+Sobrecrecimiento
+____________________
+  
+PASIVA: Cada 8 monstruos o súbditos enemigos que mueran cerca de ti obtienes permanentemente. 3 de vida adicional.
+Después de ganar 15 acumulaciones (120 monstruos o súbditos), obtienes un adicional de 3.5% de vida adicional.
+Alcance 1400</pre>
+
+<pre id="galletas" hidden>
+Entrega de galletas
+____________________
+  
+PASIVA: Recibes una Galleta de la Voluntad Eterna en los minutos 2:00, 4:00 y 6:00. Si el inventario está lleno mientras recibes una galleta, la(s) galleta(s) aparecerán tan pronto como se libere un lugar en el inventario.
+Consumir una Galleta otorgará instantáneamente 50 de maná aumentará de forma permanente tu maná máximo en 50, además de sus efectos. También obtendrás el aumento de maná si vendes la Galleta por 30.</pre>
+  
+<pre id="tonico" hidden>
+Tónico de distorsión temporal
+____________________
+  
+PASIVA: Consumir una poción o galleta restaura inmediatamente el 50% de la vida y maná (si corresponde) que recuperaría. La vida/maná por instancia se reduce a la mitad durante la duración regular del efecto. Si los consumibles se acumulan, la restauración instantánea se aplica después de que finaliza la duración del consumible inicial.
+Además, ganas un 5% de velocidad de movimiento adicional mientras estés bajo el efecto de una poción o una galleta.</pre>
+  
+<pre id="guantelete" hidden>
+Guantelete de fuego escarchado
+____________________
+
+350 de vida
+25 de armadura
+25 de resistencia mágica
+20 de velocidad de habilidades
+Inmolar: Recibir o infligir daño provoca que comiences a infligir (20 - 40 [según el nivel] + 1% de la vida adicional) de daño mágico por segundo a los enemigos cercanos (aumenta un 25% contra súbditos y un 150% contra monstruos) durante 3 s.
+Vínculo de nieve: Los ataques crean un área de escarcha durante 1.5 s (4 s de enfriamiento). Los enemigos que atraviesen la zona quedan ralentizados un 25% (aumenta con tu vida máxima).
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 100 de vida y 6% de tamaño.</pre>
+<pre id="titanica" hidden>
+Hidra titánica
+____________________
+
+30 de daño de ataque
+500 de vida
+Coloso: Otorga daño de ataque adicional equivalente al 1% de la vida máxima.
+Hender: Los ataques infligen (5 + 1,5% de la vida máxima) de daño de físico adicional al golpear y crean una onda de choque que inflige (40 + 3% de la vida máxima) de daño físico adicional contra los enemigos que se encuentren detrás del objetivo.
+  
+Los campeones a distancia infligen un 75% del daño. El daño de al golpear también se aplica a las estructuras.</pre>
+
+<pre id="tabis" hidden>
+Botas blindadas
+____________________
+  
+20 de armadura
+45 de velocidad de movimiento
+Reduce un 12% el daño sufrido por ataques.</pre>
+
+<pre id="espinas" hidden>
+Malla de espinas
+____________________
+  
+350 de vida
+60 de armadura
+Espinas: Al recibir un ataque, inflige (10 + 10% de la armadura adicional) de daño mágico al atacante y aplica un 40% de Heridas graves durante 3 s si se trata de un campeón. Inmovilizar a campeones enemigos también aplica un 60% de Heridas graves durante 3 s.
+    
+Heridas graves reduce los efectos de curación y regeneración.</pre>
+
+<pre id="petreo" hidden>
+Protector pétreo de gárgola
+____________________
+  
+60 de armadura
+60 de resistencia mágica
+15 de velocidad de habilidades
+    
+Activa - Inquebrantable: Otorga un escudo de (100 + 100% de la vida adicional) que disminuye a lo largo del tiempo y crece en tamaño un 25% durante 2.5 s (90 s de enfriamiento).
+Fortificación: Recibir daño de un campeón otorga una acumulación de 5% de armadura adicional y un 5% de resistencia mágica durante 6 s.
+    
+5 acumulaciones como máximo; 1 por campeón.</pre>
+
+<pre id="warmog" hidden>
+Armadura de Warmog
+____________________
+  
+800 de vida
+10 de velocidad de habilidades
+200% de regeneración de vida básica
+Corazón de Warmog: Si tienes al menos 3000 de vida máxima, restaura un 5% de la vida máxima por segundo tras no recibir daño durante 6 s (3 s para unidades que no sean campeones).</pre>
+  
+<pre id="revitalizar" hidden>
+Revitalizar
+____________________
+  
+PASIVA: Otorga 5% de curación y Hybrid resistances poder de escudo.
+La curación saliente y el Hybrid resistances escudo saliente aumentan un 10% en comparación con los objetivos por debajo del 40% de vida.
+La curación entrante, el Hybrid resistances escudo entrante, la autocuración y la Hybrid resistances autoprotección aumentan un 10%, mientras que tú estés por debajo del 40% de vida.</pre>
+  
+
+<pre id="solar" hidden>
+Égida de fuego solar
+____________________
+  
+350 de vida
+30 de armadura
+30 de resistencia mágica
+20 de velocidad de habilidades
+Inmolar: Recibir o infligir daño hace que comiences a infligir (20 - 40 [según el nivel] + 1% de la vida adicional) de daño mágico por segundo a los enemigos cercanos (aumenta un 25% contra súbditos y un 150% contra monstruos) durante 3 s. Infligir daño a campeones o monstruos épicos con este efecto añade una acumulación, lo que aumenta el daño posterior de Inmolar en un 12% durante 5 s (6 acumulaciones como máximo).
+Toque flamígero: Con el máximo de acumulaciones, tus ataques queman a los enemigos cercanos, lo que inflige el daño de Inmolar por segundo durante 3 s.
+    
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 5% de tenacidad y resistencia a la ralentización.</pre>
+
+<pre id="randuin" hidden>
+Presagio de Randuin
+____________________
+
+250 de vida
+80 de armadura
+10 de velocidad de habilidades
+    
+Activa: Humildad: Ralentiza brevemente a los enemigos cercanos, reduce su daño de ataque un 10% y el daño crítico un 20% durante 4 s (60 s de enfriamiento).
+Como una roca: Reduce el daño recibido de ataques hasta en (un 0,5% de la vida máxima), hasta un máximo del 40% del daño del ataque.</pre>
+  
+<pre id="naturaleza" hidden>
+Fuerza de la naturaleza
+____________________
+  
+350 de vida
+60 de resistencia mágica
+5% de velocidad de movimiento
+Absorber: Al recibir daño de habilidades, otorga 8 de velocidad de movimiento y 4 de resistencia mágica durante 5 s (se acumula hasta 5 veces; una acumulación por cada habilidad única).</pre>
+
+<pre id="abisal" hidden>
+Máscara abisal
+____________________
+  
+350 de vida
+60 de resistencia mágica
+Deshacer: Inmovilizar a un campeón hace que reciba un 10% más de daño durante 4 s.</pre>
+
+<pre id="tenacidad" hidden>
+Leyenda: Tenacidad
+____________________
+
+PASIVA: Otorga un 5% (+ 2.5% por cada acumulación de Leyenda) de tenacidad hasta un 30% con 10 acumulaciones.
+LEYENDA: Otorga acumulaciones de Leyenda por cada 20 puntos obtenidos hasta un máximo de 10:
+·100 puntos por Damage derribos de campeones
+·100 puntos por Damage derribos de monstruos épicos
+·25 puntos por muertes de monstruos grandes
+·4 punto por cada muerte de súbditos</pre>
+
+<pre id="conquistador" hidden>
+Conquistador
+____________________
+    
+PASIVA: los ataques básicos al impacto contra campeones enemigos otorgan (2 / 1) acumulaciones de Conquistador. Las habilidades y hechizos que infligen daño a un campeón enemigo siempre otorgan 2 acumulaciones.
+Cada acumulación de Conquistador otorga 1.02 − 2.52 (según el nivel) DA adicional o 1.7 − 4.2 (según el nivel) PH (adaptable) durante 6 segundos, acumulándose hasta 12 veces, para un máximo de 14.4 − 36 (según el nivel) DA adicional o 24 − 60 (según el nivel) PH (adaptable). Cuando están completamente acumulados, los campeones se curan por (9% / 6%) del daño de posmitigación infligido a los campeones enemigos. Las mejoras se actualizan al infligir daño a campeones enemigos con ataques o habilidades.
+Los efectos de daño prolongado y las fuentes de daño en curso otorgarán una acumulación/actualización solo una vez cada 5 segundos. Las habilidades y efectos que infligen daño predeterminado no otorgarán acumulaciones.</pre>
+  
+<pre id="triunfo" hidden>
+Triunfo
+____________________
+      
+PASIVA: los derribos de campeones, después de un retraso de 1 segundo, restauran 12% de vida faltante y otorgan 20 adicional.</pre>
+  
+<pre id="golpe" hidden>
+Golpe de Gracia
+____________________
+  
+PASIVA: Inflige un 8% más de daño a los campeones por debajo del 40% de vida máxima.</pre>
+  
+<pre id="eclipse" hidden>
+Eclipse
+____________________
+  
+55 de daño de ataque
+18 de letalidad
+8% de omnisucción
+    
+Luna creciente: Golpear a un campeón con 2 ataques o habilidades independientes en 1.5 s o menos inflige un 6% de su vida máxima como daño físico, te otorga un 15% de velocidad de movimiento y un escudo de (150 + 40% del daño de ataque adicional) (100 + 30% del daño de ataque adicional para campeones a distancia) durante 2 s (8 s de enfriamiento, 16 s de enfriamiento para campeones a distancia).
+    
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 4% de penetración de armadura</pre>
+
+<pre id="baile" hidden>
+Baile de la muerte
+____________________
+  
+55 de daño de ataque
+45 de armadura
+15 de velocidad de habilidades
+Ignora el dolor: 35% (15% para campeones a distancia) del daño físico que recibas te afecta a lo largo de 3 s.
+Reto: Los asesinatos y asistencias de campeones eliminan la reserva de daño restante de Ignora el dolor, te otorgan un 30% de velocidad de movimiento durante 2 s y restauran el 10% de la vida máxima mientras dura el efecto.</pre>
+  
+<pre id="cuchilla" hidden>
+Cuchilla negra
+____________________
+
+40 de daño de ataque
+400 de vida
+25 de velocidad de habilidades
+Trinchar: Infligir daño físico a un campeón aplica una acumulación de un 4% de reducción de armadura durante 6 s (reducción de armadura máxima del 24%).
+Rabia: Infligir daño físico a un campeón otorga 5 de velocidad de movimiento por cada acumulación de Trinchar que tenga durante 2 s.</pre>
+<pre id="malmortius" hidden>
+Fauces de Malmortius
+____________________
+
+50 de daño de ataque
+50 de resistencia mágica
+15 de velocidad de habilidades
+Salvavidas: Al recibir daño mágico que reduzca la vida por debajo del 30%, otorga un escudo que absorbe (200 + 20% de la vida máxima) de daño mágico durante 5 s (60 s de enfriamiento).</pre>
+<pre id="sierra" hidden>
+Mecanoespada punki
+____________________
+
+45 de daño de ataque
+250 de vida
+15 de velocidad de habilidades
+Esquilar: Infligir daño físico aplica un 40% de Heridas graves a los campeones enemigos durante 3 s. Si el objetivo está por debajo del 50% de vida, este efecto aumenta a un 60% de Heridas graves.
+  
+Heridas graves reduce los efectos de curación y regeneración.</pre>
+
+<pre id="reververacion" hidden>
+Reverberación
+____________________
+        
+PASIVA: Inmovilizar un campeón enemigo otorga 35 (+ 80% armadura adicional) de armadura adicional y 35 (+ 80% resistencia mágica adicional) de resistencia mágica adicional por 2.5 segundos. Las resistencias adicionales están limitadas a 80 − 150 (según el nivel).
+Después de la duración, se libera una onda de choque que causa 25 − 120 (según el nivel) (+ 8% de tu vida máxima) de daño mágico a los campeones enemigos cercanos y monstruos.
+Enfriamiento 20 segundos</pre>
+
+<pre id="vida" hidden>
+Fuente de vida
+____________________
+    
+PASIVA: ralentizar o inmovilizar un campeón enemigo los marca durante 4 segundos.
+Los campeones aliados (excluyéndote a ti) que ataquen a los enemigos marcados se curan por 5 (+ 1% de tu vida máxima) durante 1.75 segundos.</pre>
+  
+<pre id="inquebrantable" hidden>
+Inquebrantable
+____________________
+  
+PASIVA: Después de recibir daño de un campeón enemigo, durante 3 segundos, los siguientes tres hechizos o ataques recibidos del mismo campeón enemigo infligen 15 − 40 (según el nivel) menos de daño.
+Enfriamiento 45 segundos</pre>
+
+<pre id="rostro" hidden>
+Rostro espiritual
+____________________
+    
+450 de vida
+40 de resistencia mágica
+10 de velocidad de habilidades
+100% de regeneración de vida básica
+Vitalidad ilimitada: Aumenta la eficacia de toda la curación y los escudos que recibes un 25%.</pre>
+
+<pre id="celeridad" hidden>
+Leyenda: Presteza
+____________________
+    
+PASIVA: Otorga un 3% (+ 1.5% por cada acumulación de Leyenda) de velocidad de ataque adicional hasta un 18% con 10 acumulaciones.
+LEYENDA: Otorga acumulaciones de Leyenda por cada 100 puntos obtenidos hasta un máximo de 10:
+·100 puntos por derribos de campeones
+·100 puntos por derribos de monstruos épicos
+·25 puntos por muertes de monstruos grandes
+·4 punto por cada muerte de súbditos</pre>
+
+<pre id="esfuerzo" hidden>
+Último esfuerzo
+____________________
+  
+PASIVA: Inflige un 5% más de daño a los campeones mientras estés por debajo del 60% de vida máxima. Esto aumenta en función de tu vida faltante hasta un 11% más de daño mientras estés por debajo del 30% de vida máxima.</pre>
+  
+<pre id="calzado" hidden>
+Calzado mágico
+____________________
+  
+PASIVA: A los 12 minutos (reducido en 45 segundos por derribo), ganas Botas Ligeramente Mágicas gratis. Las Botas Ligeramente Mágicas son idénticas y se pueden actualizar como si fueran Botas. Si el inventario está lleno mientras se reciben las botas, aparecerán tan pronto como se libere un lugar en el inventario.
+Además, tus botas ganan 10 de velocidad de movimiento adicional adicional de forma pasiva.
+Sin embargo, las Botas están deshabilitadas y no puedes comprar botas de nivel 2 antes de obtener las Botas Ligeramente Mágicas.</pre>
+
+  </body>
+</html>

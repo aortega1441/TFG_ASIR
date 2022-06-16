@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ADC</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/campeones.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+
+    <script>
+      function eligeCampeon(campeon) {
+        var campeonElegido = "";
+        if (campeon == "vayne") {
+          campeonElegido = "Vayne";
+        } else if (campeon == "jhin") {
+          campeonElegido = "Jhin";
+        } else if (campeon == "samira") {
+          campeonElegido = "Samira";
+        } else if (campeon == "draven") {
+          campeonElegido = "Draven";
+        } else if (campeon == "kalista") {
+          campeonElegido = "Kalista";
+        } else {
+          campeonElegido = "none";
+          location.reload();
+        }
+
+        var xmlhttp;
+        var datos;
+        var resultados = document.getElementById("listaCampeones");
+        var mostrarDatos = "";
+
+        if (campeon.length == 0) {
+          document.getElementById("info").innerHTML = "";
+          resultados.innerHTML = "";
+          return;
+        }
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            datos = xmlhttp.responseText;
+            document.getElementById("info").innerHTML =
+              datos[0];
+            for (var i = 1; i < 2; i++) {
+              mostrarDatos =
+                mostrarDatos +
+                "<div class='info' id='lore'" +
+                i +
+                ">" +
+                datos +
+                "</div>";
+            }
+            resultados.innerHTML = mostrarDatos;
+          }
+        };
+        var parametros = "adc=" + encodeURIComponent(campeonElegido);
+        xmlhttp.open("POST", "php/adc.php");
+        xmlhttp.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
+        xmlhttp.send(parametros);
+      }
+
+      function cambiar(valor) {
+        
+
+        var filo = document.getElementById("filo").textContent;
+        var intensificado = document.getElementById("intensificado").textContent;
+        var triunfo = document.getElementById("triunfo").textContent;
+        var celeridad = document.getElementById("celeridad").textContent;
+        var golpe = document.getElementById("golpe").textContent;
+        var cimitarra = document.getElementById("cimitarra").textContent;
+        var berserker = document.getElementById("berserker").textContent;
+        var sanguinaria = document.getElementById("sanguinaria").textContent;
+        var bailarin = document.getElementById("bailarin").textContent;
+        var kraken = document.getElementById("kraken").textContent;
+        var sabor = document.getElementById("sabor").textContent;
+        var cosecha = document.getElementById("cosecha").textContent;
+        var ojos = document.getElementById("ojos").textContent;
+        var claridad = document.getElementById("claridad").textContent;
+        var linaje = document.getElementById("linaje").textContent;
+        var dominik = document.getElementById("dominik").textContent;
+        var canon = document.getElementById("canon").textContent;
+        var viento = document.getElementById("viento").textContent;
+        var coleccionista = document.getElementById("coleccionista").textContent;
+        var voraz = document.getElementById("voraz").textContent;
+        var rapidez = document.getElementById("rapidez").textContent;
+        var lluvia = document.getElementById("lluvia").textContent;
+        var runaan = document.getElementById("runaan").textContent;
+        var arcoescudo = document.getElementById("arcoescudo").textContent;
+        var hidrav = document.getElementById("hidrav").textContent;
+        var guinsoo = document.getElementById("guinsoo").textContent;
+        var conquistador = document.getElementById("conquistador").textContent;
+
+
+        if (valor == "vayne") {
+          document.getElementById("img1").src = "images/objetos/kraken.png";
+          document.getElementById("fig1").title = kraken;
+          document.getElementById("img2").src = "images/objetos/bailarin.png";
+          document.getElementById("fig2").title = bailarin;
+          document.getElementById("img3").src = "images/objetos/sanguinaria.png";
+          document.getElementById("fig3").title = sanguinaria;
+          document.getElementById("img4").src = "images/objetos/filo.png";
+          document.getElementById("fig4").title = filo;
+          document.getElementById("img5").src = "images/objetos/cimitarra.png";
+          document.getElementById("fig5").title = cimitarra;
+          document.getElementById("img6").src = "images/objetos/berserker.png";
+          document.getElementById("fig6").title = berserker;
+          document.getElementById("img7").src =
+            "images/runas/precision/intensificado.png";
+          document.getElementById("fig7").title = intensificado;
+          document.getElementById("img8").src =
+            "images/runas/precision/triunfo.png";
+          document.getElementById("fig8").title = triunfo;
+          document.getElementById("img9").src =
+            "images/runas/precision/celeridad.png";
+          document.getElementById("fig9").title = celeridad;
+          document.getElementById("img10").src =
+            "images/runas/precision/golpe.png";
+          document.getElementById("fig10").title = golpe;
+          document.getElementById("img11").src =
+            "images/runas/dominacion/sabor.png";
+          document.getElementById("fig11").title = sabor;
+          document.getElementById("img12").src =
+            "images/runas/dominacion/voraz.png";
+          document.getElementById("fig12").title = voraz;
+          document.getElementById("img13").src = "images/campeones/swain.png";
+
+          document.getElementById("img14").src = "images/campeones/twitch.png";
+
+          document.getElementById("img15").src = "images/campeones/aphelios.png";
+
+          document.getElementById("img16").src = "images/campeones/lucian.png";
+          document.getElementById("skin11").src = "images/skins/vayne.jpg";
+          document.getElementById("skin111").src = "images/skins/vayne.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/vayne_proyecto.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/vayne_proyecto.jpg";
+        } else if (valor == "jhin") {
+          document.getElementById("img1").src = "images/objetos/viento.png";
+          document.getElementById("fig1").title = viento;
+          document.getElementById("img2").src = "images/objetos/coleccionista.png";
+          document.getElementById("fig2").title = coleccionista;
+          document.getElementById("img3").src = "images/objetos/canon.png";
+          document.getElementById("fig3").title = canon;
+          document.getElementById("img4").src = "images/objetos/filo.png";
+          document.getElementById("fig4").title = filo;
+          document.getElementById("img5").src = "images/objetos/dominik.png";
+          document.getElementById("fig5").title = dominik;
+          document.getElementById("img6").src = "images/objetos/rapidez.png";
+          document.getElementById("fig6").title = rapidez;
+          document.getElementById("img7").src =
+            "images/runas/dominacion/cosecha.png";
+          document.getElementById("fig7").title = cosecha;
+          document.getElementById("img8").src =
+            "images/runas/dominacion/sabor.png";
+          document.getElementById("fig8").title = sabor;
+          document.getElementById("img9").src =
+            "images/runas/dominacion/ojos.png";
+          document.getElementById("fig9").title = ojos;
+          document.getElementById("img10").src =
+            "images/runas/dominacion/voraz.png";
+          document.getElementById("fig10").title = voraz;
+          document.getElementById("img11").src =
+            "images/runas/precision/claridad.png";
+          document.getElementById("fig11").title = claridad;
+          document.getElementById("img12").src =
+            "images/runas/precision/linaje.png";
+          document.getElementById("fig12").title = linaje;
+          document.getElementById("img13").src = "images/campeones/tahm.png";
+
+          document.getElementById("img14").src = "images/campeones/swain.png";
+
+          document.getElementById("img15").src = "images/campeones/aphelios.png";
+
+          document.getElementById("img16").src = "images/campeones/lucian.png";
+          document.getElementById("skin11").src = "images/skins/jhin.jpg";
+          document.getElementById("skin111").src = "images/skins/jhin.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/jhin_shan.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/jhin_shan.jpg";
+        } else if (valor == "kalista") {
+          document.getElementById("img1").src = "images/objetos/arcoescudo.png";
+          document.getElementById("fig1").title = arcoescudo;
+          document.getElementById("img2").src = "images/objetos/filo.png";
+          document.getElementById("fig2").title = filo;
+          document.getElementById("img3").src = "images/objetos/runaan.png";
+          document.getElementById("fig3").title = runaan;
+          document.getElementById("img4").src = "images/objetos/guinsoo.png";
+          document.getElementById("fig4").title = guinsoo;
+          document.getElementById("img5").src = "images/objetos/voraz.png";
+          document.getElementById("fig5").title = voraz;
+          document.getElementById("img6").src = "images/objetos/berserker.png";
+          document.getElementById("fig6").title = berserker;
+          document.getElementById("img7").src =
+            "images/runas/dominacion/lluvia.png";
+          document.getElementById("fig7").title = lluvia;
+          document.getElementById("img8").src =
+            "images/runas/dominacion/sabor.png";
+          document.getElementById("fig8").title = sabor;
+          document.getElementById("img9").src =
+            "images/runas/dominacion/ojos.png";
+          document.getElementById("fig9").title = ojos;
+          document.getElementById("img10").src =
+            "images/runas/dominacion/voraz.png";
+          document.getElementById("fig10").title = voraz;
+          document.getElementById("img11").src =
+            "images/runas/precision/triunfo.png";
+          document.getElementById("fig11").title = triunfo;
+          document.getElementById("img12").src =
+            "images/runas/precision/celeridad.png";
+          document.getElementById("fig12").title = celeridad;
+          document.getElementById("img13").src = "images/campeones/tahm.png";
+
+          document.getElementById("img14").src = "images/campeones/swain.png";
+
+          document.getElementById("img15").src = "images/campeones/varus.png";
+
+          document.getElementById("img16").src = "images/campeones/lucian.png";
+          document.getElementById("skin11").src = "images/skins/kalista.jpg";
+          document.getElementById("skin111").src = "images/skins/kalista.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/kalista_yelmo.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/kalista_yelmo.jpg";
+        } else if (valor == "draven") {
+          document.getElementById("img1").src = "images/objetos/arcoescudo.png";
+          document.getElementById("fig1").title = arcoescudo;
+          document.getElementById("img2").src = "images/objetos/coleccionista.png";
+          document.getElementById("fig2").title = coleccionista;
+          document.getElementById("img3").src = "images/objetos/filo.png";
+          document.getElementById("fig3").title = filo;
+          document.getElementById("img4").src = "images/objetos/sanguinaria.png";
+          document.getElementById("fig4").title = sanguinaria;
+          document.getElementById("img5").src = "images/objetos/canon.png";
+          document.getElementById("fig5").title = canon;
+          document.getElementById("img6").src = "images/objetos/berserker.png";
+          document.getElementById("fig6").title = berserker;
+          document.getElementById("img7").src =
+            "images/runas/dominacion/lluvia.png";
+          document.getElementById("fig7").title = lluvia;
+          document.getElementById("img8").src =
+            "images/runas/dominacion/sabor.png";
+          document.getElementById("fig8").title = sabor;
+          document.getElementById("img9").src =
+            "images/runas/dominacion/ojos.png";
+          document.getElementById("fig9").title = ojos;
+          document.getElementById("img10").src =
+            "images/runas/dominacion/voraz.png";
+          document.getElementById("fig10").title = voraz;
+          document.getElementById("img11").src =
+            "images/runas/precision/claridad.png";
+          document.getElementById("fig11").title = claridad;
+          document.getElementById("img12").src =
+            "images/runas/precision/linaje.png";
+          document.getElementById("fig12").title = linaje;
+          document.getElementById("img13").src = "images/campeones/tahm.png";
+
+          document.getElementById("img14").src = "images/campeones/swain.png";
+
+          document.getElementById("img15").src = "images/campeones/lucian.png";
+
+          document.getElementById("img16").src = "images/campeones/aphelios.png";
+          document.getElementById("skin11").src = "images/skins/draven.jpg";
+          document.getElementById("skin111").src = "images/skins/draven.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/draven_santa.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/draven_santa.jpg";
+        } else if (valor == "samira") {
+          document.getElementById("img1").src = "images/objetos/arcoescudo.png";
+          document.getElementById("fig1").title = arcoescudo;
+          document.getElementById("img2").src = "images/objetos/filo.png";
+          document.getElementById("fig2").title = filo;
+          document.getElementById("img3").src = "images/objetos/sanguinaria.png";
+          document.getElementById("fig3").title = sanguinaria;
+          document.getElementById("img4").src = "images/objetos/dominik.png";
+          document.getElementById("fig4").title = dominik;
+          document.getElementById("img5").src = "images/objetos/coleccionista.png";
+          document.getElementById("fig5").title = coleccionista;
+          document.getElementById("img6").src = "images/objetos/berserker.png";
+          document.getElementById("fig6").title = berserker;
+          document.getElementById("img7").src =
+            "images/runas/precision/conquistador.png";
+          document.getElementById("fig7").title = conquistador;
+          document.getElementById("img8").src =
+            "images/runas/precision/claridad.png";
+          document.getElementById("fig8").title = claridad;
+          document.getElementById("img9").src =
+            "images/runas/precision/linaje.png";
+          document.getElementById("fig9").title = linaje;
+          document.getElementById("img10").src =
+            "images/runas/precision/golpe.png";
+          document.getElementById("fig10").title = golpe;
+          document.getElementById("img11").src =
+            "images/runas/dominacion/sabor.png";
+          document.getElementById("fig11").title = sabor;
+          document.getElementById("img12").src =
+            "images/runas/dominacion/voraz.png";
+          document.getElementById("fig12").title = voraz;
+          document.getElementById("img13").src = "images/campeones/swain.png";
+
+          document.getElementById("img14").src = "images/campeones/tahm.png";
+
+          document.getElementById("img15").src = "images/campeones/draven.png";
+
+          document.getElementById("img16").src = "images/campeones/lucian.png";
+          document.getElementById("skin11").src = "images/skins/samira.jpg";
+          document.getElementById("skin111").src = "images/skins/samira.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/samira_ops.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/samira_ops.jpg";
+        } else {
+          imagenElegida = "none";
+        }
+      }
+    </script>
+  </head>
+
+  <body style="margin: 20px" class="contenedor" id="inicio">
+    <main>
+      <header>
+        <div id="enlaces-inicio">
+          <a href="lineas.html"
+            ><img
+              src="images/flecha_inicio.png"
+              alt="lineas"
+              width="80em"
+              height="80em"
+          /></a>
+          <a href="index.html"
+            ><img
+              src="images/inicio.png"
+              alt="inicio"
+              width="80em"
+              height="80em"
+          /></a>
+        </div>
+        <h1>Elige un ADC:</h1>
+        <form action="">
+          <div class="select">
+            <select
+              onchange="eligeCampeon(this.value), cambiar(this.value)"
+            >
+              <option value="none">Elige</option>
+              <option value="vayne">Vayne</option>
+              <option value="jhin">Jhin</option>
+              <option value="kalista">Kalista</option>
+              <option value="draven">Draven</option>
+              <option value="samira">Samira</option>
+            </select>
+          </div>
+        </form>
+      </header>
+      <br />
+      <p>
+        <span id="info"></span>
+      </p>
+      <div id="listaCampeones"></div>
+      <h2>Objetos recomendados</h2>
+      <div>
+        <figure id="fig1" title=""><img id="img1" src="" alt="" /></figure>
+        <figure id="fig2" title=""><img id="img2" src="" alt="" /></figure>
+        <figure id="fig3" title=""><img id="img3" src="" alt="" /></figure>
+        <figure id="fig4" title=""><img id="img4" src="" alt="" /></figure>
+        <figure id="fig5" title=""><img id="img5" src="" alt="" /></figure>
+        <figure id="fig6" title=""><img id="img6" src="" alt="" /></figure>
+      </div>
+      <h2>Runas recomendadas</h2>
+      <div class="runas">
+        <h4>Primarias</h4>
+        <figure id="fig7" title=""><img id="img7" src="" alt="" /></figure>
+        <figure id="fig8" title=""><img id="img8" src="" alt="" /></figure>
+        <figure id="fig9" title=""><img id="img9" src="" alt="" /></figure>
+        <figure id="fig10" title=""><img id="img10" src="" alt="" /></figure>
+      </div>
+      <div class="runas">
+        <h4>Secundarias</h4>
+        <figure id="fig11" title=""><img id="img11" src="" alt="" /></figure>
+        <figure id="fig12" title=""><img id="img12" src="" alt="" /></figure>
+      </div>
+
+      <div id="debil">
+        <h2>Débil contra:</h2>
+        <br />
+        <img id="img13" src="images/no_campeon.png" alt="" />
+        <img id="img14" src="images/no_campeon.png" alt="" />
+      </div>
+      <div id="fuerte">
+        <h2>Fuerte contra:</h2>
+        <br />
+        <img id="img15" src="images/no_campeon.png" alt="" />
+        <img id="img16" src="images/no_campeon.png" alt="" />
+      </div>
+      <div>
+        <h2>Skins</h2>
+        <ul class="galeria" id="galeria">
+          <li>
+            <a href="#skin1"><img id="skin11" src="images/no_imagen.png" /></a>
+          </li>
+          <li>
+            <a href="#skin2"><img id="skin22" src="images/no_imagen.png" /></a>
+          </li>
+        </ul>
+
+        <div class="modal" id="skin1">
+          <div class="imagen">
+            <a href="#skin2"><button id="izquierda"><img id="imgbutton" src="images/flecha.png" alt=""></button></a>
+            <a href="#skin2"><img id="skin111" src="" /></a>
+            <a href="#skin2"><button id="derecha"><img id="imgbutton" src="images/flecha2.png" alt=""></button></a>
+          </div>
+          <a class="cerrar" href="#inicio">X</a>
+        </div>
+
+        <div class="modal" id="skin2">
+          <div class="imagen">
+            <a href="#skin1"><button id="izquierda"><img id="imgbutton" src="images/flecha.png" alt=""></button></a>
+            <a href="#skin1"><img id="skin222" src="" /></a>
+            <a href="#skin1"><button id="derecha"><img id="imgbutton" src="images/flecha2.png" alt=""></button></a>
+          </div>
+          <a class="cerrar" href="#inicio">X</a>
+        </div>
+      </div>
+    </main>
+
+    <pre id="cimitarra" hidden>
+Cimitarra mercurial
+____________________
+
+40 de daño de ataque
+20% de probabilidad de impacto crítico
+30 de resistencia mágica
+      
+Activa - Mercurio: Elimina todos los efectos de control de adversario (menos los levantamientos en el aire) y otorga un 50% de velocidad de movimiento durante 1 s (90 s de enfriamiento).</pre>
+<pre id="kraken" hidden>
+Verdugo de krakens
+____________________
+
+65 de daño de ataque
+25% de velocidad de ataque
+20% de probabilidad de impacto crítico
+Abatir: Cada tercer ataque inflige (60 + 45% del daño de ataque adicional) de daño verdadero adicional.
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 10% de velocidad de ataque.</pre>
+<pre id="berserker" hidden>
+Grebas de berserker
+____________________
+
+35% de velocidad de ataque
+45 de velocidad de movimiento</pre>
+<pre id="bailarin" hidden>
+Bailarín espectral
+____________________
+
+20 de daño de ataque
+25% de velocidad de ataque
+20% de probabilidad de impacto crítico
+7% de velocidad de movimiento
+Vals espectral: Los ataques otorgan forma fantasmal y un 7 % de velocidad de movimiento durante 3 s. Además, después de realizar 4 ataques, Vals espectral también otorga un 30 % de velocidad de ataque la misma cantidad de tiempo.
+  
+Las unidades con Fantasmal ignoran la colisión con otras unidades.</pre>
+<pre id="sanguinaria" hidden>
+Sanguinaria
+____________________
+
+55 de daño de ataque
+20% de probabilidad de impacto crítico
+20% de robo de vida
+Escudo de icor: Robar vida con ataques puede curarte por encima de tu vida máxima. La vida adicional se acumula como un escudo de 50 - 350 (según el nivel), que va decreciendo lentamente si no has infligido o recibido daño en los últimos 25 s.</pre>
+<pre id="filo" hidden>
+Filo Infinito
+____________________
+  
+70 de daño de ataque
+20% de probabilidad de impacto crítico
+Perfección: Si tienes al menos un 60% de probabilidad de impacto crítico, obtienes un 35% de daño de impacto crítico.</pre>
+
+<pre id="intensificado" hidden>
+Ataque intensificado
+____________________
+
+PASIVA: Los ataques básicos contra campeones enemigos aplican acumulaciones durante 4 segundos. Atacar a un nuevo objetivo elimina todas las acumulaciones del objetivo anterior. Aplicar 3 acumulaciones a un objetivo inflige 40 − 180 (según el nivel) de Daño adaptable adicional y lo deja Vulnerable durante 6 segundos, haciendo que reciba un 8% − 12% (según el nivel) de daño aumentado de todas las fuentes subsiguientes (excepto del daño verdadero).
+Enfriamiento 6 segundos</pre>
+<pre id="triunfo" hidden>
+Triunfo
+____________________
+
+PASIVA: los derribos de campeones, después de un retraso de 1 segundo, restauran 12% de vida faltante y otorgan 20 adicional.</pre>
+<pre id="celeridad" hidden>
+Leyenda: Presteza
+____________________
+
+PASIVA: Otorga un 3% (+ 1.5% por cada acumulación de Leyenda) de velocidad de ataque adicional hasta un 18% con 10 acumulaciones.
+LEYENDA: Otorga acumulaciones de Leyenda por cada 100 puntos obtenidos hasta un máximo de 10:
+·100 puntos por derribos de campeones
+·100 puntos por derribos de monstruos épicos
+·25 puntos por muertes de monstruos grandes
+·4 punto por cada muerte de súbditos</pre>
+<pre id="golpe" hidden>
+Golpe de Gracia
+____________________
+
+PASIVA: Inflige un 8% más de daño a los campeones por debajo del 40% de vida máxima.</pre>
+<pre id="sabor" hidden>
+Sabor a sangre
+____________________
+
+PASIVA: Dañar a un campeón enemigo te cura por 18 − 35 (según el nivel) (+ 20% DA adicional) (+ 10% PH).
+No se activa a plena vida.
+Enfriamiento 20 segundos</pre>
+<pre id="voraz" hidden>
+Cazador voraz
+____________________
+
+Ganas +1.5% de omnivampirismo por acumulación de Cazarrecompensas, hasta un 7.5% con 5 acumulaciones.
+Ganas una acumulación de Cazarrecompensas por derribo de campeón, hasta uno por cada campeón enemigo único.</pre>
+<pre id="claridad" hidden>
+Claridad mental
+____________________
+
+PASIVA: Los derribos de campeones, tras 1 segundo de retraso restauran un 15% de maná faltante o 15% de energía máxima
+Dañar a un campeón enemigo aumenta tu regeneración de maná en 1.5 − 11 (según el nivel) maná por segundo, reducido a 80% de efectividad para campeones a distancia, por 4 segundos. Al activar este efecto, los usuarios de energía regeneran 1.5 de energía por segundo.</pre>
+<pre id="linaje" hidden>
+Leyenda: Linaje
+____________________
+
+PASIVA: Otorga un 0.6% de robo de vida por cada acumulación de Leyenda hasta un 9% con 15 acumulaciones.
+LEYENDA: Otorga acumulaciones de Leyenda por cada 100 puntos obtenidos hasta un máximo de 15:
+·100 puntos por derribos de campeones
+·100 puntos por derribos de monstruos épicos
+·25 puntos por asesinatos contra monstruos grandes
+·4 punto por cada asesinato contra súbditos</pre>
+<pre id="cosecha" hidden>
+Cosecha Oscura
+____________________
+
+PASIVA: Dañar a un campeón por debajo del 50% de su vida máxima inflige 20 − 60 (según el nivel) (+ 5 por Alma (+ 25% DA adicional) (+ 15% PH) adicional de Daño adaptable y cosecha 1 Alma. Esto no puede volver a suceder durante 45 segundos, reiniciando a 1.5 segundos al derribar un campeón.
+Cuando no está en tiempo de enfriamiento, el Alma también se toma al obtener el crédito de la muerte de un campeón asesinado por Minion icon.png súbditos, torretas o monstruos.
+Enfriamiento 45 segundos</pre>
+<pre id="ojos" hidden>
+Colección de globos oculares
+____________________
+
+PASIVA: Coleccionas 1 Ojo por campeón derribado, hasta 10.
+Obtienes 1.2 DA adicional o 2 PH (adaptable) por Ojo recolectado, hasta 12 DA adicional o 20 PH (adaptable). Completar tu colección otorga 6 DA adicional o 10 PH (adaptable) adicional.
+ADAPTABLE: Otorga bonificaciones en función de las estadísticas para las que ya tienes más bonificaciones. Valores predeterminados a los primeros listados.</pre>
+<pre id="viento" hidden>
+Viento huracanado
+____________________
+
+60 de daño de ataque
+20% de velocidad de ataque
+20% de probabilidad de impacto crítico
+  
+Activa - Aguacero: Te deslizas hacia la dirección seleccionada y disparas tres misiles al enemigo con menos vida que se encuentre cerca de tu destino (prioriza a los campeones). Inflige un total de (180 - 220 (según el nivel) + 45% del daño de ataque adicional) de daño mágico, que aumenta contra objetivos con poca vida hasta un 50% (90 s de enfriamiento).
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 3% de velocidad de movimiento
+  
+Daño máximo del misil cuando la vida del enemigo está por debajo del 30%.
+El deslizamiento de Aguacero no puede atravesar obstáculos del terreno.</pre>
+<pre id="canon" hidden>
+Cañón de fuego rápido
+____________________
+
+35% de velocidad de ataque
+20% de probabilidad de impacto crítico
+7% de velocidad de movimiento
+Vigor: Moverse y atacar generará un ataque con vigor.
+Francotirador: Tus ataques con vigor infligen 120 de daño mágico adicional. Además, los ataques con vigor obtienen hasta un 35% de alcance de ataque adicional.
+  
+El alcance de ataque no puede aumentar más de 150 unidades.
+  </pre>
+<pre id="dominik" hidden>
+Recuerdos de Lord Dominik
+____________________
+
+30 de daño de ataque
+20% de probabilidad de impacto crítico
+35% de penetración de armadura
+Verdugo de gigantes: Infliges hasta un 15% de daño físico adicional a campeones que tengan más vida máxima que tú.
+  
+Mejora máxima con 2000 de vida máxima de diferencia).</pre>
+<pre id="coleccionista" hidden>
+Recaudadora
+____________________
+
+55 de daño de ataque
+20% de probabilidad de impacto crítico
+12 de letalidad
+Muerte e impuestos: Si infliges daño a un campeón enemigo y lo dejas con menos del 5% de vida, lo ejecutas. Los asesinatos de campeones otorgan 25 de oro adicional.</pre>
+<pre id="rapidez" hidden>
+Botas de rapidez
+____________________
+  
+60 de velocidad de movimiento
+La fuerza de los efectos de ralentización de movimiento se reduce un 25%.</pre>
+  <pre id="hidrav" hidden>
+Hidra voraz
+____________________
+
+65 de daño de ataque
+20 de velocidad de habilidades
+10% de omnisucción
+Hender: Los ataques y habilidades infligen hasta (un 60% del daño de ataque) de daño físico a otros enemigos que estén cerca del objetivo.
+    
+Inflige un mínimo de (un 12% del daño de ataque) de daño a las unidades al final de su alcance, solo puede golpear a cada objetivo una vez por ataque o habilidad y no se activa con el daño periódico.</pre>
+<pre id="arcoescudo" hidden>
+Arcoescudo inmortal
+____________________
+
+55 de daño de ataque
+20% de velocidad de ataque
+20% de probabilidad de impacto crítico
+10% de robo de vida
+Salvavidas: Cuando recibas daño que te haga bajar del 30% de vida, obtienes un escudo de 250 - 700 durante 3 s. Además, obtienes 15-35 de daño de ataque durante 8 s (90 s ).
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 5 de daño de ataque y 50 de vida.</pre>
+<pre id="runaan" hidden>
+Huracán de Runaan
+____________________
+
+45% de velocidad de ataque
+20% de probabilidad de impacto crítico
+7% de velocidad de movimiento
+Furia de viento: Al usar ataques básicos, se disparan proyectiles a un máximo de 2 enemigos cercanos al objetivo y cada uno inflige (40% del daño de ataque) de daño físico. Los proyectiles aplican efectos de impacto y pueden infligir impactos críticos.
+  
+El objeto es solo para campeones a distancia.</pre>
+<pre id="guinsoo" hidden>
+Hoja de Furia de Guinsoo
+____________________
+  
+45% de velocidad de ataque
+20% de probabilidad de impacto crítico
+Ira: Tu probabilidad de impacto crítico se convierte en daño al golpear. Obtienes 40 de daño al golpear por cada 20% de probabilidad de impacto crítico convertida.
+Golpe furioso: Cada tercer ataque aplica los efectos de impacto dos veces.
+    
+Ira no se beneficia de una probabilidad de impacto crítico superior al 100%. La conversión al daño al golpear de Ira se ve afectada por modificadores de daño crítico.</pre>
+<pre id="lluvia" hidden>
+Lluvia de cuchillas
+____________________
+
+PASIVA: Atacar a un campeón enemigo activa Lluvia de Espadas, con 2 acumulaciones restantes.
+Mientras Lluvia de espadas está activa, obtienes 110% de velocidad de ataque adicional y tu límite de velocidad de ataque aumenta temporalmente. Lluvia de Espadas dura 3 segundos, pero su duración se actualiza al atacar a los campeones enemigos hasta que se consumen todas las acumulaciones.
+Se consume 1 acumulación por ataque básico y se gana 1 acumulación cada vez que se lanza una habilidad que restablezca el temporizador de ataque básico.
+Enfriamiento 8 segundos</pre>
+<pre id="conquistador" hidden>
+Conquistador
+____________________
+
+PASIVA: los ataques básicos al impacto contra campeones enemigos otorgan (2 / 1) acumulaciones de Conquistador. Las habilidades y hechizos que infligen daño a un campeón enemigo siempre otorgan 2 acumulaciones.
+Cada acumulación de Conquistador otorga 1.02 − 2.52 (según el nivel) DA adicional o 1.7 − 4.2 (según el nivel) PH (adaptable) durante 6 segundos, acumulándose hasta 12 veces, para un máximo de 14.4 − 36 (según el nivel) DA adicional o 24 − 60 (según el nivel) PH (adaptable). Cuando están completamente acumulados, los campeones se curan por (9% / 6%) del daño de posmitigación infligido a los campeones enemigos. Las mejoras se actualizan al infligir daño a campeones enemigos con ataques o habilidades.
+Los efectos de daño prolongado y las fuentes de daño en curso otorgarán una acumulación/actualización solo una vez cada 5 segundos. Las habilidades y efectos que infligen daño predeterminado no otorgarán acumulaciones.</pre>
+
+
+
+</body>
+</html>

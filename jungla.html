@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JUNGLA</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/campeones.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+
+    <script>
+      function mostrarCampeon(campeon) {
+        var campeonElegido = "";
+        if (campeon == "zac") {
+          campeonElegido = "Zac";
+        } else if (campeon == "rengar") {
+          campeonElegido = "Rengar";
+        } else if (campeon == "shaco") {
+          campeonElegido = "Shaco";
+        }  else if (campeon == "fiddlesticks") {
+          campeonElegido = "Fiddlesticks";
+        } else if (campeon == "shyvana") {
+          campeonElegido = "Shyvana";
+        } else {
+          campeonElegido = "none";
+          location.reload();
+        }
+
+        var xmlhttp;
+        var datos;
+        var resultados = document.getElementById("listaCampeones");
+        var mostrarDatos = "";
+
+        if (campeon.length == 0) {
+          document.getElementById("info").innerHTML = "";
+          resultados.innerHTML = "";
+          return;
+        }
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            datos = xmlhttp.responseText;
+            document.getElementById("info").innerHTML =
+              datos[0];
+            for (var i = 1; i < 2; i++) {
+              mostrarDatos =
+                mostrarDatos +
+                "<div class='info' id='lore'" +
+                i +
+                ">" +
+                datos +
+                "</div>";
+            }
+            resultados.innerHTML = mostrarDatos;
+          }
+        };
+        var parametros = "jungla=" + encodeURIComponent(campeonElegido);
+        xmlhttp.open("POST", "php/jungla.php"); 
+        xmlhttp.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        ); 
+        xmlhttp.send(parametros); 
+      }
+
+      function cambiar(valor) {
+        
+        var reververacion = document.getElementById("reververacion").textContent;
+        var vida = document.getElementById("vida").textContent;
+        var condicionamiento = document.getElementById("condicionamiento").textContent;
+        var revitalizar = document.getElementById("revitalizar").textContent;
+        var calzado = document.getElementById("calzado").textContent;
+        var cosmica = document.getElementById("cosmica").textContent;
+        var solar = document.getElementById("solar").textContent;
+        var randuin = document.getElementById("randuin").textContent;
+        var warmog = document.getElementById("warmog").textContent;
+        var rostro = document.getElementById("rostro").textContent;
+        var tabis = document.getElementById("tabis").textContent;
+        var petreo = document.getElementById("petreo").textContent;
+        var lluvia = document.getElementById("lluvia").textContent;
+        var impacto = document.getElementById("impacto").textContent;
+        var ojos = document.getElementById("ojos").textContent;
+        var incesante = document.getElementById("incesante").textContent;
+        var celeridad = document.getElementById("celeridad").textContent;
+        var golpe = document.getElementById("golpe").textContent;
+        var eclipse = document.getElementById("eclipse").textContent;
+        var coleccionista = document.getElementById("coleccionista").textContent;
+        var filo = document.getElementById("filo").textContent;
+        var berserker = document.getElementById("berserker").textContent;
+        var navori = document.getElementById("navori").textContent;
+        var esencias = document.getElementById("esencias").textContent;
+        var predador = document.getElementById("predador").textContent;
+        var centinela = document.getElementById("centinela").textContent;
+        var definitivo = document.getElementById("definitivo").textContent;
+        var mercado = document.getElementById("mercado").textContent;
+        var hextech = document.getElementById("hextech").textContent;
+        var zhonya = document.getElementById("zhonya").textContent;
+        var hechicero = document.getElementById("hechicero").textContent;
+        var morelo = document.getElementById("morelo").textContent;
+        var abrazo = document.getElementById("abrazo").textContent;
+        var rabadon = document.getElementById("rabadon").textContent;
+        var bajo = document.getElementById("bajo").textContent;
+        var voraz = document.getElementById("voraz").textContent;
+        var trascendencia = document.getElementById("bajo").textContent;
+        var tormenta = document.getElementById("tormenta").textContent;
+        var nashor = document.getElementById("nashor").textContent;
+        var cosechador = document.getElementById("cosechador").textContent;
+        var vacio = document.getElementById("vacio").textContent;
+        var impulso = document.getElementById("impulso").textContent;
+        var cosecha = document.getElementById("cosecha").textContent;
+        var conquistador = document.getElementById("conquistador").textContent;
+        var triunfo = document.getElementById("triunfo").textContent;
+        var linaje = document.getElementById("linaje").textContent;
+        var esfuerzo = document.getElementById("esfuerzo").textContent;
+        var revestimiento = document.getElementById("revestimiento").textContent;
+        var lucidez = document.getElementById("lucidez").textContent;
+        var serpiente = document.getElementById("serpiente").textContent;
+        var noche = document.getElementById("noche").textContent;
+        var serylda = document.getElementById("serylda").textContent;
+        var baile = document.getElementById("baile").textContent;
+
+
+
+        
+
+
+
+          if (valor == "zac") {
+            document.getElementById("img1").src = "images/objetos/solar.png";
+            document.getElementById("fig1").title = solar;
+            document.getElementById("img2").src = "images/objetos/randuin.png";
+            document.getElementById("fig2").title = randuin;
+            document.getElementById("img3").src = "images/objetos/petreo.png";
+            document.getElementById("fig3").title = petreo;
+            document.getElementById("img4").src = "images/objetos/rostro.png";
+            document.getElementById("fig4").title = rostro;
+            document.getElementById("img5").src = "images/objetos/warmog.png";
+            document.getElementById("fig5").title = warmog;
+            document.getElementById("img6").src = "images/objetos/tabis.png";
+            document.getElementById("fig6").title = tabis;
+            document.getElementById("img7").src =
+              "images/runas/valor/reververacion.png";
+            document.getElementById("fig7").title = reververacion;
+            document.getElementById("img8").src =
+              "images/runas/valor/vida.png";
+            document.getElementById("fig8").title = vida;
+            document.getElementById("img9").src =
+              "images/runas/valor/condicionamiento.png";
+            document.getElementById("fig9").title = condicionamiento;
+            document.getElementById("img10").src =
+              "images/runas/valor/revitalizar.png";
+            document.getElementById("fig10").title = revitalizar;
+            document.getElementById("img11").src =
+              "images/runas/inspiracion/calzado.png";
+            document.getElementById("fig11").title = calzado;
+            document.getElementById("img12").src =
+              "images/runas/inspiracion/cosmica.png";
+            document.getElementById("fig12").title = cosmica;
+            document.getElementById("img13").src = "images/campeones/fiddle.png";
+  
+            document.getElementById("img14").src = "images/campeones/karthus.png";
+  
+            document.getElementById("img15").src = "images/campeones/rammus.png";
+  
+            document.getElementById("img16").src = "images/campeones/shyvana.png";
+            document.getElementById("skin11").src = "images/skins/zac.jpg";
+            document.getElementById("skin111").src = "images/skins/zac.jpg";
+            document.getElementById("skin22").src =
+              "images/skins/zac_maquina.jpg";
+            document.getElementById("skin222").src =
+              "images/skins/zac_maquina.jpg";
+  
+          } else if (valor == "shaco") {
+          document.getElementById("img1").src = "images/objetos/eclipse.png";
+          document.getElementById("fig1").title = eclipse;
+          document.getElementById("img2").src = "images/objetos/filo.png";
+          document.getElementById("fig2").title = filo;
+          document.getElementById("img3").src = "images/objetos/coleccionista.png";
+          document.getElementById("fig3").title = coleccionista;
+          document.getElementById("img4").src = "images/objetos/esencias.png";
+          document.getElementById("fig4").title = esencias;
+          document.getElementById("img5").src = "images/objetos/navori.png";
+          document.getElementById("fig5").title = navori;
+          document.getElementById("img6").src = "images/objetos/berserker.png";
+          document.getElementById("fig6").title = berserker;
+          document.getElementById("img7").src =
+            "images/runas/dominacion/lluvia.png";
+          document.getElementById("fig7").title = lluvia;
+          document.getElementById("img8").src =
+            "images/runas/dominacion/impacto.png";
+          document.getElementById("fig8").title = impacto;
+          document.getElementById("img9").src =
+            "images/runas/dominacion/ojos.png";
+          document.getElementById("fig9").title = ojos;
+          document.getElementById("img10").src =
+            "images/runas/dominacion/incesante.png";
+          document.getElementById("fig10").title = incesante;
+          document.getElementById("img11").src =
+            "images/runas/precision/celeridad.png";
+          document.getElementById("fig11").title = celeridad;
+          document.getElementById("img12").src =
+            "images/runas/precision/golpe.png";
+          document.getElementById("fig12").title = golpe;
+          document.getElementById("img13").src = "images/campeones/fiddle.png";
+
+          document.getElementById("img14").src = "images/campeones/sejuani.png";
+
+          document.getElementById("img15").src = "images/campeones/rengar.png";
+
+          document.getElementById("img16").src = "images/campeones/rammus.png";
+          document.getElementById("skin11").src = "images/skins/shaco.jpg";
+          document.getElementById("skin111").src = "images/skins/shaco.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/shaco_arcano.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/shaco_arcano.jpg";
+          } else if (valor == "fiddlesticks") {
+          document.getElementById("img1").src = "images/objetos/hextech.png";
+          document.getElementById("fig1").title = hextech;
+          document.getElementById("img2").src = "images/objetos/zhonya.png";
+          document.getElementById("fig2").title = zhonya;
+          document.getElementById("img3").src = "images/objetos/morelo.png";
+          document.getElementById("fig3").title = morelo;
+          document.getElementById("img4").src = "images/objetos/abrazo.png";
+          document.getElementById("fig4").title = abrazo;
+          document.getElementById("img5").src = "images/objetos/rabadon.png";
+          document.getElementById("fig5").title = rabadon;
+          document.getElementById("img6").src = "images/objetos/hechicero.png";
+          document.getElementById("fig6").title = hechicero;
+          document.getElementById("img7").src =
+            "images/runas/dominacion/predador.png";
+          document.getElementById("fig7").title = predador;
+          document.getElementById("img8").src =
+            "images/runas/dominacion/bajo.png";
+          document.getElementById("fig8").title = bajo;
+          document.getElementById("img9").src =
+            "images/runas/dominacion/ojos.png";
+          document.getElementById("fig9").title = ojos;
+          document.getElementById("img10").src =
+            "images/runas/dominacion/definitivo.png";
+          document.getElementById("fig10").title = definitivo;
+          document.getElementById("img11").src =
+            "images/runas/inspiracion/mercado.png";
+          document.getElementById("fig11").title = mercado;
+          document.getElementById("img12").src =
+            "images/runas/inspiracion/cosmica.png";
+          document.getElementById("fig12").title = cosmica;
+          document.getElementById("img13").src = "images/campeones/ww.png";
+
+          document.getElementById("img14").src = "images/campeones/vi.png";
+
+          document.getElementById("img15").src = "images/campeones/lilia.png";
+
+          document.getElementById("img16").src = "images/campeones/ivern.png";
+          document.getElementById("skin11").src = "images/skins/fiddle.jpg";
+          document.getElementById("skin111").src = "images/skins/fiddle.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/fiddle_h.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/fiddle_h.jpg";
+          } else if (valor == "shyvana") {
+          document.getElementById("img1").src = "images/objetos/nashor.png";
+          document.getElementById("fig1").title = nashor;
+          document.getElementById("img2").src = "images/objetos/cosechador.png";
+          document.getElementById("fig2").title = cosechador;
+          document.getElementById("img3").src = "images/objetos/impulso.png";
+          document.getElementById("fig3").title = impulso;
+          document.getElementById("img4").src = "images/objetos/vacio.png";
+          document.getElementById("fig4").title = vacio;
+          document.getElementById("img5").src = "images/objetos/rabadon.png";
+          document.getElementById("fig5").title = rabadon;
+          document.getElementById("img6").src = "images/objetos/hechicero.png";
+          document.getElementById("fig6").title = hechicero;
+          document.getElementById("img7").src =
+            "images/runas/dominacion/cosecha.png";
+          document.getElementById("fig7").title = cosecha;
+          document.getElementById("img8").src =
+            "images/runas/dominacion/impacto.png";
+          document.getElementById("fig8").title = impacto;
+          document.getElementById("img9").src =
+            "images/runas/dominacion/ojos.png";
+          document.getElementById("fig9").title = ojos;
+          document.getElementById("img10").src =
+            "images/runas/dominacion/voraz.png";
+          document.getElementById("fig10").title = voraz;
+          document.getElementById("img11").src =
+            "images/runas/brujeria/trascendencia.png";
+          document.getElementById("fig11").title = trascendencia;
+          document.getElementById("img12").src =
+            "images/runas/brujeria/tormenta.png";
+          document.getElementById("fig12").title = tormenta;
+          document.getElementById("img13").src = "images/campeones/zac.png";
+
+          document.getElementById("img14").src = "images/campeones/gwen.png";
+
+          document.getElementById("img15").src = "images/campeones/jax.png";
+
+          document.getElementById("img16").src = "images/campeones/ivern.png";
+          document.getElementById("skin11").src = "images/skins/shyvana.jpg";
+          document.getElementById("skin111").src = "images/skins/shyvana.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/shyvana_ruined.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/shyvana_ruined.jpg";
+          } else if (valor == "rengar") {
+          document.getElementById("img1").src = "images/objetos/eclipse.png";
+          document.getElementById("fig1").title = eclipse;
+          document.getElementById("img2").src = "images/objetos/serpiente.png";
+          document.getElementById("fig2").title = serpiente;
+          document.getElementById("img3").src = "images/objetos/noche.png";
+          document.getElementById("fig3").title = noche;
+          document.getElementById("img4").src = "images/objetos/serylda.png";
+          document.getElementById("fig4").title = serylda;
+          document.getElementById("img5").src = "images/objetos/baile.png";
+          document.getElementById("fig5").title = baile;
+          document.getElementById("img6").src = "images/objetos/lucidez.png";
+          document.getElementById("fig6").title = lucidez;
+          document.getElementById("img7").src =
+            "images/runas/precision/conquistador.png";
+          document.getElementById("fig7").title = conquistador;
+          document.getElementById("img8").src =
+            "images/runas/precision/triunfo.png";
+          document.getElementById("fig8").title = triunfo;
+          document.getElementById("img9").src =
+            "images/runas/precision/linaje.png";
+          document.getElementById("fig9").title = linaje;
+          document.getElementById("img10").src =
+            "images/runas/precision/esfuerzo.png";
+          document.getElementById("fig10").title = esfuerzo;
+          document.getElementById("img11").src =
+            "images/runas/valor/revestimiento.png";
+          document.getElementById("fig11").title = revestimiento;
+          document.getElementById("img12").src =
+            "images/runas/valor/revitalizar.png";
+          document.getElementById("fig12").title = revitalizar;
+          document.getElementById("img13").src = "images/campeones/viego.png";
+
+          document.getElementById("img14").src = "images/campeones/yorick.png";
+
+          document.getElementById("img15").src = "images/campeones/gankplank.png";
+
+          document.getElementById("img16").src = "images/campeones/yone.png";
+          document.getElementById("skin11").src = "images/skins/rengar.jpg";
+          document.getElementById("skin111").src = "images/skins/rengar.jpg";
+          document.getElementById("skin22").src =
+            "images/skins/rengar_mecha.jpg";
+          document.getElementById("skin222").src =
+            "images/skins/rengar_mecha.jpg";
+          } else {
+            imagenElegida = "none";
+          }
+      }
+
+    </script>
+  </head>
+
+  <body style="margin: 20px" class="contenedor" id="inicio">
+    <main>
+      <header>
+        <div id="enlaces-inicio">
+          <a href="lineas.html"
+            ><img
+              src="images/flecha_inicio.png"
+              alt="lineas"
+              width="80em"
+              height="80em"
+          /></a>
+          <a href="index.html"
+            ><img
+              src="images/inicio.png"
+              alt="inicio"
+              width="80em"
+              height="80em"
+          /></a>
+        </div>
+        <h1>Elige un JUNGLA:</h1>
+        <form action="">
+          <div class="select">
+            <select
+              onchange="mostrarCampeon(this.value), cambiar(this.value)"
+            >
+              <option value="none">Elige</option>
+              <option value="zac">Zac</option>
+              <option value="shaco">Shaco</option>
+              <option value="fiddlesticks">Fiddlesticks</option>
+              <option value="shyvana">Shyvana</option>
+              <option value="rengar">Rengar</option>
+            </select>
+          </div>
+        </form>
+      </header>
+      <br />
+      <p>
+        <span id="info"></span>
+      </p>
+      <div id="listaCampeones"></div>
+      <h2>Objetos recomendados</h2>
+      <div>
+        <figure id="fig1" title=""><img id="img1" src="" alt="" /></figure>
+        <figure id="fig2" title=""><img id="img2" src="" alt="" /></figure>
+        <figure id="fig3" title=""><img id="img3" src="" alt="" /></figure>
+        <figure id="fig4" title=""><img id="img4" src="" alt="" /></figure>
+        <figure id="fig5" title=""><img id="img5" src="" alt="" /></figure>
+        <figure id="fig6" title=""><img id="img6" src="" alt="" /></figure>
+      </div>
+      <h2>Runas recomendadas</h2>
+      <div class="runas">
+        <h4>Primarias</h4>
+        <figure id="fig7" title=""><img id="img7" src="" alt="" /></figure>
+        <figure id="fig8" title=""><img id="img8" src="" alt="" /></figure>
+        <figure id="fig9" title=""><img id="img9" src="" alt="" /></figure>
+        <figure id="fig10" title=""><img id="img10" src="" alt="" /></figure>
+      </div>
+      <div class="runas">
+        <h4>Secundarias</h4>
+        <figure id="fig11" title=""><img id="img11" src="" alt="" /></figure>
+        <figure id="fig12" title=""><img id="img12" src="" alt="" /></figure>
+      </div>
+  
+      <div id="debil">
+        <h2>Débil contra:</h2>
+        <br />
+        <img id="img13" src="images/no_campeon.png" alt="" />
+        <img id="img14" src="images/no_campeon.png" alt="" />
+      </div>
+      <div id="fuerte">
+        <h2>Fuerte contra:</h2>
+        <br />
+        <img id="img15" src="images/no_campeon.png" alt="" />
+        <img id="img16" src="images/no_campeon.png" alt="" />
+      </div>
+      <div>
+        <h2>Skins</h2>
+        <ul class="galeria" id="galeria">
+          <li>
+            <a href="#skin1"><img id="skin11" src="images/no_imagen.png" /></a>
+          </li>
+          <li>
+            <a href="#skin2"><img id="skin22" src="images/no_imagen.png" /></a>
+          </li>
+        </ul>
+  
+        <div class="modal" id="skin1">
+          <div class="imagen">
+            <a href="#skin2"><button id="izquierda"><img id="imgbutton" src="images/flecha.png" alt=""></button></a>
+            <a href="#skin2"><img id="skin111" src="" /></a>
+            <a href="#skin2"><button id="derecha"><img id="imgbutton" src="images/flecha2.png" alt=""></button></a>
+          </div>
+          <a class="cerrar" href="#inicio">X</a>
+        </div>
+  
+        <div class="modal" id="skin2">
+          <div class="imagen">
+            <a href="#skin1"><button id="izquierda"><img id="imgbutton" src="images/flecha.png" alt=""></button></a>
+            <a href="#skin1"><img id="skin222" src="" /></a>
+            <a href="#skin1"><button id="derecha"><img id="imgbutton" src="images/flecha2.png" alt=""></button></a>
+          </div>
+          <a class="cerrar" href="#inicio">X</a>
+        </div>
+      </div>
+    </main>
+
+
+<pre id="reververacion" hidden>
+Reverberación
+____________________
+      
+PASIVA: Inmovilizar un campeón enemigo otorga 35 (+ 80% armadura adicional) de armadura adicional y 35 (+ 80% resistencia mágica adicional) de resistencia mágica adicional por 2.5 segundos. Las resistencias adicionales están limitadas a 80 − 150 (según el nivel).
+Después de la duración, se libera una onda de choque que causa 25 − 120 (según el nivel) (+ 8% de tu vida máxima) de daño mágico a los campeones enemigos cercanos y monstruos.
+Enfriamiento 20 segundos</pre>
+
+<pre id="vida" hidden>
+Fuente de vida
+____________________
+  
+PASIVA: ralentizar o inmovilizar un campeón enemigo los marca durante 4 segundos.
+Los campeones aliados (excluyéndote a ti) que ataquen a los enemigos marcados se curan por 5 (+ 1% de tu vida máxima) durante 1.75 segundos.</pre>
+  
+<pre id="condicionamiento" hidden>
+Condicionamiento
+____________________
+
+PASIVA: después de 12 minutos, obtienes 9 de armadura adicional y 9 de resistencia mágica adicional y aumenta tu armadura y tu resistencia mágica total un 5%.</pre>
+<pre id="revitalizar" hidden>
+Revitalizar
+____________________
+
+PASIVA: Otorga 5% de curación y Hybrid resistances poder de escudo.
+La curación saliente y el Hybrid resistances escudo saliente aumentan un 10% en comparación con los objetivos por debajo del 40% de vida.
+La curación entrante, el Hybrid resistances escudo entrante, la autocuración y la Hybrid resistances autoprotección aumentan un 10%, mientras que tú estés por debajo del 40% de vida.</pre>
+
+<pre id="calzado" hidden>
+Calzado mágico
+____________________
+
+PASIVA: A los 12 minutos (reducido en 45 segundos por derribo), ganas Botas Ligeramente Mágicas gratis. Las Botas Ligeramente Mágicas son idénticas y se pueden actualizar como si fueran Botas. Si el inventario está lleno mientras se reciben las botas, aparecerán tan pronto como se libere un lugar en el inventario.
+Además, tus botas ganan 10 de velocidad de movimiento adicional adicional de forma pasiva.
+Sin embargo, las Botas están deshabilitadas y no puedes comprar botas de nivel 2 antes de obtener las Botas Ligeramente Mágicas.</pre>
+
+<pre id="cosmica" hidden>
+Perspicacia cósmica
+____________________
+  
+PASIVA: Obtienes 18 de aceleración de hechizos de invocador y 10 de aceleración de objeto.</pre>
+
+<pre id="rostro" hidden>
+Rostro espiritual
+____________________
+  
+450 de vida
+40 de resistencia mágica
+10 de velocidad de habilidades
+100% de regeneración de vida básica
+Vitalidad ilimitada: Aumenta la eficacia de toda la curación y los escudos que recibes un 25%.</pre>
+    
+<pre id="tabis" hidden>
+Botas blindadas
+____________________
+  
+20 de armadura
+45 de velocidad de movimiento
+Reduce un 12% el daño sufrido por ataques.</pre>
+
+<pre id="solar" hidden>
+Égida de fuego solar
+____________________
+
+350 de vida
+30 de armadura
+30 de resistencia mágica
+20 de velocidad de habilidades
+Inmolar: Recibir o infligir daño hace que comiences a infligir (20 - 40 [según el nivel] + 1% de la vida adicional) de daño mágico por segundo a los enemigos cercanos (aumenta un 25% contra súbditos y un 150% contra monstruos) durante 3 s. Infligir daño a campeones o monstruos épicos con este efecto añade una acumulación, lo que aumenta el daño posterior de Inmolar en un 12% durante 5 s (6 acumulaciones como máximo).
+Toque flamígero: Con el máximo de acumulaciones, tus ataques queman a los enemigos cercanos, lo que inflige el daño de Inmolar por segundo durante 3 s.
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 5% de tenacidad y resistencia a la ralentización.</pre>
+<pre id="randuin" hidden>
+Presagio de Randuin
+____________________
+
+250 de vida
+80 de armadura
+10 de velocidad de habilidades
+  
+Activa: Humildad: Ralentiza brevemente a los enemigos cercanos, reduce su daño de ataque un 10% y el daño crítico un 20% durante 4 s (60 s de enfriamiento).
+Como una roca: Reduce el daño recibido de ataques hasta en (un 0,5% de la vida máxima), hasta un máximo del 40% del daño del ataque.</pre>
+<pre id="petreo" hidden>
+Protector pétreo de gárgola
+____________________
+
+60 de armadura
+60 de resistencia mágica
+15 de velocidad de habilidades
+  
+Activa - Inquebrantable: Otorga un escudo de (100 + 100% de la vida adicional) que disminuye a lo largo del tiempo y crece en tamaño un 25% durante 2.5 s (90 s de enfriamiento).
+Fortificación: Recibir daño de un campeón otorga una acumulación de 5% de armadura adicional y un 5% de resistencia mágica durante 6 s.
+  
+5 acumulaciones como máximo; 1 por campeón.</pre>
+<pre id="warmog" hidden>
+Armadura de Warmog
+____________________
+
+800 de vida
+10 de velocidad de habilidades
+200% de regeneración de vida básica
+Corazón de Warmog: Si tienes al menos 3000 de vida máxima, restaura un 5% de la vida máxima por segundo tras no recibir daño durante 6 s (3 s para unidades que no sean campeones).</pre>
+
+<pre id="impacto" hidden>
+Impacto repentino
+____________________
+
+PASIVA: Entrar en combate afectando a un campeón enemigo a los 3 segundos de usar un deslizamiento, parpadeo o Teleportación, o salir de invisibilidad o camuflaje, otorga 7 de letalidad (4.36 − 7 (según el nivel) de penetración de armadura) y 6 de penetración de magia durante los siguientes 5 segundos.</pre>
+
+<pre id="lluvia" hidden>
+Lluvia de cuchillas
+____________________
+  
+PASIVA: Atacar a un campeón enemigo activa Lluvia de Espadas, con 2 acumulaciones restantes.
+Mientras Lluvia de espadas está activa, obtienes 110% de velocidad de ataque adicional y tu límite de velocidad de ataque aumenta temporalmente. Lluvia de Espadas dura 3 segundos, pero su duración se actualiza al atacar a los campeones enemigos hasta que se consumen todas las acumulaciones.
+Se consume 1 acumulación por ataque básico y se gana 1 acumulación cada vez que se lanza una habilidad que restablezca el temporizador de ataque básico.
+Enfriamiento 8 segundos</pre>
+
+<pre id="ojos" hidden>
+Colección de globos oculares
+____________________
+    
+PASIVA: Coleccionas 1 Ojo por campeón derribado, hasta 10.
+Obtienes 1.2 DA adicional o 2 PH (adaptable) por Ojo recolectado, hasta 12 DA adicional o 20 PH (adaptable). Completar tu colección otorga 6 DA adicional o 10 PH (adaptable) adicional.
+ADAPTABLE: Otorga bonificaciones en función de las estadísticas para las que ya tienes más bonificaciones. Valores predeterminados a los primeros listados.</pre>
+  
+<pre id="incesante" hidden>
+Cazador incesante
+____________________
+  
+PASIVA: Ganas 5 (+8 por acumulación de Cazarrecompensas) de velocidad de movimiento fuera de combate, hasta 45 en 5 acumulaciones.
+Ganas una acumulación de Cazarrecompensas por derribo de campeón, hasta uno por cada campeón enemigo único.</pre>
+
+<pre id="celeridad" hidden>
+Leyenda: Presteza
+____________________
+  
+PASIVA: Otorga un 3% (+ 1.5% por cada acumulación de Leyenda) de velocidad de ataque adicional hasta un 18% con 10 acumulaciones.
+LEYENDA: Otorga acumulaciones de Leyenda por cada 100 puntos obtenidos hasta un máximo de 10:
+·100 puntos por derribos de campeones
+·100 puntos por derribos de monstruos épicos
+·25 puntos por muertes de monstruos grandes
+·4 punto por cada muerte de súbditos</pre>
+
+<pre id="golpe" hidden>
+Golpe de Gracia
+____________________
+  
+PASIVA: Inflige un 8% más de daño a los campeones por debajo del 40% de vida máxima.</pre>
+
+<pre id="eclipse" hidden>
+Eclipse
+____________________
+
+55 de daño de ataque
+18 de letalidad
+8% de omnisucción
+  
+Luna creciente: Golpear a un campeón con 2 ataques o habilidades independientes en 1.5 s o menos inflige un 6% de su vida máxima como daño físico, te otorga un 15% de velocidad de movimiento y un escudo de (150 + 40% del daño de ataque adicional) (100 + 30% del daño de ataque adicional para campeones a distancia) durante 2 s (8 s de enfriamiento, 16 s de enfriamiento para campeones a distancia).
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 4% de penetración de armadura</pre>
+<pre id="esencias" hidden>
+Saqueador de esencia
+____________________
+
+45 de daño de ataque
+20% de probabilidad de impacto crítico
+20 de velocidad de habilidades
+Hoja encantada: Tras usar una habilidad, tu siguiente ataque inflige un 100% del daño de ataque básico + un 40% del daño de ataque adicional como daño físico al golpear y restaura un 40% de ese daño como maná (1.5 s de enfriamiento).</pre>
+<pre id="navori" hidden>
+Filoveloz de Navori
+____________________
+
+60 de daño de ataque
+20% de probabilidad de impacto crítico
+30 de velocidad de habilidades
+Golpes diestros: Cuando tus ataques asesten golpes críticos, se reduce en un 20% el enfriamiento restante de las habilidades que no sean la definitiva.</pre>
+
+<pre id="filo" hidden>
+Filo Infinito
+____________________
+  
+70 de daño de ataque
+20% de probabilidad de impacto crítico
+Perfección: Si tienes al menos un 60% de probabilidad de impacto crítico, obtienes un 35% de daño de impacto crítico.</pre>
+
+<pre id="berserker" hidden>
+Grebas de berserker
+____________________
+  
+35% de velocidad de ataque
+45 de velocidad de movimiento</pre>
+
+<pre id="coleccionista" hidden>
+Recaudadora
+____________________
+
+55 de daño de ataque
+20% de probabilidad de impacto crítico
+12 de letalidad
+Muerte e impuestos: Si infliges daño a un campeón enemigo y lo dejas con menos del 5% de vida, lo ejecutas. Los asesinatos de campeones otorgan 25 de oro adicional.</pre>
+  
+
+<pre id="predador" hidden>
+Depredador
+____________________
+
+PASIVA: Las botas obtienen el efecto activo DEPREDADOR.
+ACTIVA - DEPREDADOR: Después de 0.25 segundos de canalización, obtienes velocidad de movimiento adicional durante 10 segundos, aumentando hasta un 45% durante 1.5 segundos, mientras se mueve hacia campeones enemigos (alcance de 3000, incluye campeones enemigos fuera de la vista).
+Después de aumentar, tu próximo ataque o habilidad de daño contra un campeón enemigo inflige 40 − 120 (según el nivel) (+ 20% DA adicional) (+ 10% PH) de Daño adaptable adicional después de 0.25 segundos de retraso y finaliza el efecto.
+DAÑO ADAPTABLE: Inflige daño físico o daño mágico dependiendo en tus estadísticas adicionales, prefijando en daño físico.
+Enfriamiento 90 − 60 (según el nivel) segundos
+Alcance 3000</pre>
+<pre id="mercado" hidden>
+Mercado del futuro
+____________________
+
+PASIVA: Puedes entrar en deuda para comprar objetos, hasta 145 (+ 5 por minuto), que se muestra como oro negativo en tu tesorería.
+se agrega una comisión de 50 a la cantidad de dinero que debes después de salir de la tienda.
+No puedes pedir dinero prestado antes del minuto 2:00.</pre>
+
+<pre id="bajo" hidden>
+Golpe bajo
+____________________
+    
+PASIVA: Los ataques básicos y las habilidades dañinas infligen 10 − 45 (según el nivel) de daño verdadero adicional a  campeones enemigos ralentizados o inmovilizados.
+Nótese que los ataques o habilidades que dañan al objetivo no activarán ese daño adicional, a menos que el objetivo ya esté afectado.</pre>
+
+<pre id="centinela" hidden>
+Guardián zombi
+____________________
+  
+Al derribar un centinela enemigo, se invoca a un Centinela Zombi aliado en su lugar (temporizador de asistencia de 10 segundos). Si la maleza en el que mataste al centinela enemigo ya contiene un centinela aliado, en lugar de eso, obtienes un Centinela Zombi en tu Ranura de Baratijas que se puede colocar en cualquier lugar dentro de los siguientes 30 segundos.
+Obtienes 1.2 DA adicional o 2 PH (adaptable) por cada Centinela Zombi generado, hasta 10, para un máximo de 12 DA adicional o 20 PH (adaptable).
+Los Centinelas Zombi otorgan visión en 1100 unidades, son visibles para el equipo enemigo, tienen 1 de vida, duran 120 segundos y no cuentan para tu límite de centinelas.
+Matar a un Centinela Zombi otorgará 1.</pre>
+
+<pre id="definitivo" hidden>
+Cazador definitivo
+____________________
+  
+Obtienes 6 (+5 por acumulación de "Cazarrecompensas") de aceleración máxima, hasta 31 con 5 acumulaciones.
+Gana una acumulación de Cazarrecompensas por derribo de Campeón, hasta uno por cada Campeón enemigo único.</pre>
+
+<pre id="cosmica" hidden>
+Perspicacia cósmica
+____________________
+  
+PASIVA: Obtienes 18 de aceleración de hechizos de invocador y 10 de aceleración de objeto.</pre>
+
+<pre id="hextech" hidden>
+Cintomisil hextech
+____________________
+
+90 de poder de habilidad
+6 de penetración mágica
+250 de vida
+15 de velocidad de habilidades
+  
+Activa - Hexproyectil: Te deslizas hacia la dirección seleccionada y lanzas proyectiles mágicos en arco que infligen (125 + 15% del poder de habilidad) de daño mágico. Después, obtienes un 30% de velocidad de movimiento al desplazarte hacia campeones enemigos durante 1.5 s (40 s de enfriamiento).
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 5 de penetración mágica.
+  
+El deslizamiento de Supersónico no puede atravesar obstáculos del terreno.</pre>
+<pre id="abrazo" hidden>
+Abrazo demoníaco
+____________________
+
+70 de poder de habilidad
+350 de vida
+Mirada de azakana: Dañar con habilidades a un enemigo le inflige un 1.2% de su vida máxima como daño mágico por quemadura cada segundo durante 4 s. Obtienes 10 de armadura y resistencia mágica si afecta a un campeón (+2.5 de armadura y resistencia mágica por cada campeón afectado).</pre>
+
+<pre id="zhonya" hidden>
+Reloj de arena de Zhonya
+____________________
+  
+65 de poder de habilidad
+45 de armadura
+10 de velocidad de habilidades
+    
+Activa - Estasis: Se puede usar para volverse invulnerable e inalcanzable durante 2.5 s, pero no se puede realizar ninguna otra acción durante ese tiempo (120 s de enfriamiento).</pre>
+
+
+<pre id="hechicero" hidden>
+Botas del hechicero
+____________________
+  
+18 de penetración mágica
+45 de velocidad de movimiento</pre>
+
+<pre id="morelo" hidden>
+Morellonomicón
+____________________
+    
+80 de poder de habilidad
+250 de vida
+Aflicción: Infligir daño mágico aplica un 40% de Heridas graves a los campeones enemigos durante 3 s. Si el objetivo está por debajo del 50% de vida, este efecto aumenta a un 60% de Heridas graves.
+      
+Heridas graves reduce los efectos de curación y regeneración.</pre>
+
+<pre id="rabadon" hidden>
+Sombrero mortal de Rabadon
+____________________
+  
+120 de poder de habilidad
+Obra mágica: Aumenta tu poder de habilidad total un 35%.</pre>
+
+<pre id="cosecha" hidden>
+Cosecha Oscura
+____________________
+  
+PASIVA: Dañar a un campeón por debajo del 50% de su vida máxima inflige 20 − 60 (según el nivel) (+ 5 por Alma (+ 25% DA adicional) (+ 15% PH) adicional de Daño adaptable y cosecha 1 Alma. Esto no puede volver a suceder durante 45 segundos, reiniciando a 1.5 segundos al derribar un campeón.
+Cuando no está en tiempo de enfriamiento, el Alma también se toma al obtener el crédito de la muerte de un campeón asesinado por Minion icon.png súbditos, torretas o monstruos.
+Enfriamiento 45 segundos</pre>
+
+<pre id="voraz" hidden>
+Cazador voraz
+____________________
+    
+Ganas +1.5% de omnivampirismo por acumulación de Cazarrecompensas, hasta un 7.5% con 5 acumulaciones.
+Ganas una acumulación de Cazarrecompensas por derribo de campeón, hasta uno por cada campeón enemigo único.</pre>
+
+<pre id="trascendencia" hidden>
+Trascendencia
+____________________
+      
+PASIVA: Ganas bonificaciones al alcanzar los siguientes niveles:
+Nivel 5: +5 aceleración de habilidad.
+Nivel 8: +5 aceleración de habilidad.
+Nivel 11: Los derribos de campeones reducen los tiempos de enfriamiento restantes de tus habilidades básicas en un 20%.</pre>
+
+<pre id="tormenta" hidden>
+Se avecina tormenta
+____________________
+  
+PASIVA: Aumenta la Fuerza adaptable cada 10 minutos lo que otorga un total de 0 − ∞ (según el minutos) de daño de ataque adicional o 0 − ∞ (según el minutos) de poder de habilidad (Adaptable).
+ADAPTABLE: Otorga bonificaciones en función de las estadísticas para las que ya tienes más bonificaciones. De forma predeterminada a la primera lista.</pre>
+
+<pre id="nashor" hidden>
+Diente de Nashor
+____________________
+
+100 de poder de habilidad
+50% de velocidad de ataque
+Mordisco de Icathia: Los ataques aplican (15 + 20% del poder de habilidad) de daño mágico al golpear.</pre>
+<pre id="cosechador" hidden>
+Cosechador nocturno
+____________________
+
+90 de poder de habilidad
+300 de vida
+15 de velocidad de habilidades
+Desgarrar alma: Dañar a un campeón le inflige (125 +15% del poder de habilidad) de daño mágico adicional y te otorga un 25% de velocidad de movimiento durante 1.5 s (40 s de enfriamiento por campeón).
+  
+Pasiva mítica: Se otorga a todos los demás objetos legendarios 5 de velocidad de habilidades.
+  
+Dañar a un nuevo campeón aumenta la duración de la velocidad de movimiento adicional.</pre>
+
+<pre id="impulso" hidden>
+Impulso cósmico
+____________________
+  
+75 de poder de habilidad
+200 de vida
+20 de velocidad de habilidades
+Danza de hechizos: Si tienes al menos 160 de poder de habilidad, obtienes 20 de velocidad de habilidades y 10-30 de velocidad de movimiento.</pre>
+  
+<pre id="vacio" hidden>
+Bastón de vacío
+____________________
+  
+70 de poder de habilidad
+40% de penetración mágica</pre>
+
+<pre id="conquistador" hidden>
+Conquistador
+____________________
+  
+PASIVA: los ataques básicos al impacto contra campeones enemigos otorgan (2 / 1) acumulaciones de Conquistador. Las habilidades y hechizos que infligen daño a un campeón enemigo siempre otorgan 2 acumulaciones.
+Cada acumulación de Conquistador otorga 1.02 − 2.52 (según el nivel) DA adicional o 1.7 − 4.2 (según el nivel) PH (adaptable) durante 6 segundos, acumulándose hasta 12 veces, para un máximo de 14.4 − 36 (según el nivel) DA adicional o 24 − 60 (según el nivel) PH (adaptable). Cuando están completamente acumulados, los campeones se curan por (9% / 6%) del daño de posmitigación infligido a los campeones enemigos. Las mejoras se actualizan al infligir daño a campeones enemigos con ataques o habilidades.
+Los efectos de daño prolongado y las fuentes de daño en curso otorgarán una acumulación/actualización solo una vez cada 5 segundos. Las habilidades y efectos que infligen daño predeterminado no otorgarán acumulaciones.</pre>
+  
+<pre id="triunfo" hidden>
+Triunfo
+____________________
+    
+PASIVA: los derribos de campeones, después de un retraso de 1 segundo, restauran 12% de vida faltante y otorgan 20 adicional.</pre>
+  
+<pre id="linaje" hidden>
+Leyenda: Linaje
+____________________
+  
+PASIVA: Otorga un 0.6% de robo de vida por cada acumulación de Leyenda hasta un 9% con 15 acumulaciones.
+LEYENDA: Otorga acumulaciones de Leyenda por cada 100 puntos obtenidos hasta un máximo de 15:
+·100 puntos por derribos de campeones
+·100 puntos por derribos de monstruos épicos
+·25 puntos por asesinatos contra monstruos grandes
+·4 punto por cada asesinato contra súbditos</pre>
+
+<pre id="esfuerzo" hidden>
+Último esfuerzo
+____________________
+
+PASIVA: Inflige un 5% más de daño a los campeones mientras estés por debajo del 60% de vida máxima. Esto aumenta en función de tu vida faltante hasta un 11% más de daño mientras estés por debajo del 30% de vida máxima.</pre>
+
+<pre id="revestimiento" hidden>
+Revestimiento de huesos
+____________________
+  
+PASIVA: Ganas 10% de resistencia a la ralentización y tenacidad. Esto aumenta en función de tu vida faltante, hasta un 30% de resistencia a la ralentización y tenacidad en 30% de vida máxima o inferior.</pre>
+
+<pre id="lucidez" hidden>
+Botas de lucidez
+____________________
+
+20 de velocidad de habilidades
+45 de velocidad de movimiento
+Otorga 12 de velocidad de hechizos de invocador.
+    
+"Este objeto está dedicado a la victoria de Jonia contra Noxus en la revancha por las provincias meridionales del 10 de diciembre del 20 CLE".</pre>
+
+<pre id="noche" hidden>
+Filo de la noche
+____________________
+  
+50 de daño de ataque
+10 de letalidad
+325 de vida
+Anular: Otorga un escudo de hechizos que bloquea la siguiente habilidad enemiga (40 s de enfriamiento).
+    
+El enfriamiento del objeto se reinicia si recibes daño antes de que se complete.</pre>
+
+<pre id="serylda" hidden>
+Rencor de Serylda
+____________________
+
+45 de daño de ataque
+30% de penetración de armadura
+20 de velocidad de habilidades
+Frío punzante: Las habilidades de daño ralentizan a los enemigos un 30% durante 1 s.
+  </pre>
+<pre id="baile" hidden>
+Baile de la muerte
+____________________
+
+55 de daño de ataque
+45 de armadura
+15 de velocidad de habilidades
+Ignora el dolor: 35% (15% para campeones a distancia) del daño físico que recibas te afecta a lo largo de 3 s.
+Reto: Los asesinatos y asistencias de campeones eliminan la reserva de daño restante de Ignora el dolor, te otorgan un 30% de velocidad de movimiento durante 2 s y restauran el 10% de la vida máxima mientras dura el efecto.</pre>
+<pre id="serpiente" hidden>
+Colmillo de serpiente
+____________________
+
+55 de daño de ataque
+18 de letalidad
+Siegaescudos: Infligir daño a un campeón enemigo reduce los escudos que obtiene un (50% | 25% para campeones a distancia) durante 3 s. Cuando infliges daño a un enemigo que no está afectado por Siegaescudos, reduces todos sus escudos un (50% | 25% para campeones a distancia).
+  
+El daño adicional no se aplica a objetivos con escudos que solo bloquean daño mágico.
+El rendimiento de los objetos varía para los campeones cuerpo a cuerpo y a distancia.
+  </pre>
+
+
+
+</body>
+</html>
